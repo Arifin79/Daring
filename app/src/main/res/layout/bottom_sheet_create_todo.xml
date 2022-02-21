@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="50dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_round_add"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            fontPath="fonts/nunito_extra_bold.ttf"
+            android:text="Add a task"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            tools:ignore="MissingPrefix"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            fontPath="fonts/nunito_extra_bold.ttf"
+            android:text="Fill the details below to add a task into your TODO"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:alpha="0.8"
+            android:textSize="18sp"
+            tools:ignore="MissingPrefix"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:text="Task title"
+            fontPath="fonts/nunito_extra_bold.ttf"
+            android:layout_marginTop="30dp"
+            tools:ignore="MissingPrefix"/>
+
+        <EditText
+            android:id="@+id/addTaskTitle"
+            android:textSize="14sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            fontPath="fonts/nunito_extra_bold.ttf"
+            android:singleLine="true"
+            android:background="@drawable/btn_border"
+            android:padding="10dp"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="30dp"
+            android:text="Task description"
+            fontPath="fonts/nunito_extra_bold.ttf"
+            tools:ignore="MissingPrefix" />
+
+        <EditText
+            android:id="@+id/addtaskDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            fontPath="fonts/nunito_extra_bold.ttf"
+            android:singleLine="true"
+            android:background="@drawable/btn_border"
+            android:padding="10dp"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="30dp"
+            android:text="Task date"
+            fontPath="fonts/nunito_extra_bold.ttf"
+            tools:ignore="MissingPrefix" />
+
+        <EditText
+            android:id="@+id/taskDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:singleLine="true"
+            android:padding="10dp"
+            fontPath="fonts/nunito_extra_bold.ttf"
+            android:background="@drawable/btn_border"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            fontPath="fonts/nunito_extra_bold.ttf"
+            android:layout_marginTop="30dp"
+            android:text="Task time"
+            tools:ignore="MissingPrefix" />
+
+        <EditText
+            android:id="@+id/taskTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            fontPath="fonts/nunito_extra_bold.ttf"
+            android:layout_marginTop="5dp"
+            android:singleLine="true"
+            android:padding="10dp"
+            android:background="@drawable/btn_border"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="30dp"
+            fontPath="fonts/nunito_extra_bold.ttf"
+            android:text="Add an event"
+            tools:ignore="MissingPrefix" />
+
+        <EditText
+            android:id="@+id/taskEvent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            fontPath="fonts/nunito_extra_bold.ttf"
+            android:singleLine="true"
+            android:padding="10dp"
+            android:background="@drawable/btn_border"
+            tools:ignore="MissingPrefix" />
+
+        <Button
+            android:id="@+id/addTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add task"
+            android:background="@drawable/btn_background"
+            android:textColor="@color/white"
+            android:layout_marginTop="40dp"/>
+    </LinearLayout>
+
+</ScrollView>

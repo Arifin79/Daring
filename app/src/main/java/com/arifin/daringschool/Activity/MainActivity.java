@@ -1,4 +1,4 @@
-package com.arifin.daringschool;
+package com.arifin.daringschool.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.arifin.daringschool.Fragment.HomeFragment;
 import com.arifin.daringschool.Fragment.ProfileFragment;
 import com.arifin.daringschool.Fragment.TodoFragment;
+import com.arifin.daringschool.R;
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

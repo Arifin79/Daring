@@ -19,7 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_home"/>
+                android:src="@drawable/bc_header_home"/>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/lnr_card"
@@ -38,7 +38,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_note"
+                        android:src="@drawable/bc_card_home_new"
                         android:layout_alignParentBottom="true"
                         android:adjustViewBounds="true"
                         android:scaleType="centerInside"/>
@@ -65,7 +65,7 @@
                                 android:padding="10dp"
                                 android:layout_marginStart="10dp"
                                 android:layout_marginEnd="10dp"
-                                android:src="@drawable/ic_account"/>
+                                android:src="@drawable/noavatar"/>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -181,25 +181,47 @@
                         android:layout_marginTop="10dp"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:textStyle="bold"
+                        android:text="07 : 00 AM"
                         android:layout_marginRight="20dp"
                         android:textColor="@color/black"/>
 
                 </LinearLayout>
 
-                <ImageView
-                    android:layout_width="54dp"
-                    android:layout_height="47dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_toStartOf="@id/img_fingerprint"
+                <androidx.cardview.widget.CardView
                     android:id="@+id/img_attendance_history"
-                    android:src="@drawable/ic_account"/>
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toStartOf="@id/img_fingerprint"
+                    app:cardCornerRadius="100dp">
 
-                <ImageView
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_alignParentLeft="true"
+                        android:padding="10dp"
+                        android:src="@drawable/fa_history" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
                     android:id="@+id/img_fingerprint"
-                    android:layout_width="54dp"
-                    android:layout_height="47dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_account"/>
+                    app:cardCornerRadius="100dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_alignParentLeft="true"
+                        android:padding="10dp"
+                        android:src="@drawable/fingerprint" />
+
+                </androidx.cardview.widget.CardView>
 
             </RelativeLayout>
 
@@ -223,16 +245,26 @@
                         android:layout_gravity="center"
                         android:orientation="vertical">
 
-                        <ImageView
-                            android:layout_width="54dp"
-                            android:layout_height="47dp"
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:layout_gravity="center"
                             android:layout_alignParentLeft="true"
-                            android:src="@drawable/ic_account" />
+                            app:cardCornerRadius="100dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_alignParentLeft="true"
+                                android:src="@drawable/tugas" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
                             android:text="Tugas"
                             android:layout_gravity="center"/>
 
@@ -244,16 +276,26 @@
                         android:layout_weight="3"
                         android:orientation="vertical">
 
-                        <ImageView
-                            android:layout_width="54dp"
-                            android:layout_height="47dp"
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:layout_gravity="center"
                             android:layout_alignParentLeft="true"
-                            android:src="@drawable/ic_account" />
+                            app:cardCornerRadius="100dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_alignParentLeft="true"
+                                android:src="@drawable/jadwal" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
                             android:text="Jadwal"
                             android:layout_gravity="center"/>
 
@@ -266,17 +308,27 @@
                         android:layout_weight="3"
                         android:orientation="vertical">
 
-                        <ImageView
-                            android:layout_width="54dp"
-                            android:layout_height="47dp"
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:layout_gravity="center"
                             android:layout_alignParentLeft="true"
-                            android:src="@drawable/ic_account" />
+                            app:cardCornerRadius="100dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_alignParentLeft="true"
+                                android:src="@drawable/ujian" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Ujian"
+                            android:layout_marginTop="10dp"
                             android:layout_gravity="center"/>
 
                     </LinearLayout>
@@ -287,17 +339,27 @@
                         android:layout_weight="3"
                         android:orientation="vertical">
 
-                        <ImageView
-                            android:layout_width="54dp"
-                            android:layout_height="47dp"
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:layout_gravity="center"
                             android:layout_alignParentLeft="true"
-                            android:src="@drawable/ic_account" />
+                            app:cardCornerRadius="100dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_alignParentLeft="true"
+                                android:src="@drawable/nilai" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Nilai"
+                            android:layout_marginTop="10dp"
                             android:layout_gravity="center"/>
 
                     </LinearLayout>
@@ -331,7 +393,8 @@
                         android:layout_height="30dp"
                         android:layout_gravity="center"
                         android:layout_marginRight="1dp"
-                        android:src="@drawable/ic_arrow_left"></ImageView>
+                        android:src="@drawable/ic_arrow_right1">
+                    </ImageView>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -363,8 +426,7 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_arrow_right">
-
+                        android:src="@drawable/ic_arrow_left1">
                     </ImageView>
 
                 </LinearLayout>
