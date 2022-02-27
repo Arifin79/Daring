@@ -12,17 +12,47 @@
     <ImageView
         android:id="@+id/img_icon"
         android:layout_width="match_parent"
-        android:layout_height="410dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/bg"></ImageView>
+        android:scaleType="centerInside"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/logo_login"></ImageView>
+
+    <TextView
+        android:id="@+id/tv_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_icon"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:textAllCaps="true"
+        android:text="Selamat Datang"/>
+
+    <TextView
+        android:id="@+id/tv_desc_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_welcome"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:text="Daring School adalah aplikasi yang Membantu anda dalam mengatur Waktu pembelajaran "/>
 
     <TextView
         android:id="@+id/tv_signIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/img_icon"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tv_desc_login"
+        android:layout_marginTop="25dp"
         android:textStyle="bold"
         android:textSize="25dp"
         android:textColor="@color/black"
@@ -102,7 +132,7 @@
                 android:layout_marginTop="-42dp"
                 android:layout_marginEnd="10dp"
                 android:clickable="true"
-                android:src="@drawable/ic_show_password"
+                android:src="@drawable/ic_visibility_off"
                 tools:ignore="ContentDescription,KeyboardInaccessibleWidget" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -140,6 +170,7 @@
                 android:textColor="@color/black" />
 
             <TextView
+                android:id="@+id/tv_signUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sign Up"

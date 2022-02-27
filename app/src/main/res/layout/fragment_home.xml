@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.HomeFragment">
     
@@ -36,12 +37,12 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:src="@drawable/bc_card_home_new"
                         android:layout_alignParentBottom="true"
                         android:adjustViewBounds="true"
-                        android:scaleType="centerInside"/>
+                        android:scaleType="centerCrop"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -201,7 +202,7 @@
                         android:layout_gravity="center"
                         android:layout_alignParentLeft="true"
                         android:padding="10dp"
-                        android:src="@drawable/fa_history" />
+                        android:src="@drawable/history" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -246,6 +247,7 @@
                         android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/cv_duty"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_gravity="center"
@@ -277,6 +279,7 @@
                         android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/cv_schedule"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_gravity="center"
@@ -309,6 +312,7 @@
                         android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/cv_examination"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_gravity="center"
@@ -340,6 +344,7 @@
                         android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/cv_grade"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_gravity="center"
@@ -388,7 +393,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/img_arrow_left"
+                        android:id="@+id/img_arrow_right"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
@@ -422,7 +427,7 @@
                     </LinearLayout>
 
                     <ImageView
-                        android:id="@+id/img_arrow_right"
+                        android:id="@+id/img_arrow_left"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
@@ -458,11 +463,11 @@
                     android:id="@+id/tv_date_now"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="17dp"
                     android:layout_marginRight="20dp"
                     android:text="Important Dates"
                     android:visibility="gone"
-                    android:textColor="#AC247A"></TextView>
+                    android:textColor="@color/md_blue_900"></TextView>
 
                 <LinearLayout
                     android:id="@+id/lnr_list_event"
@@ -471,6 +476,7 @@
                     android:layout_below="@+id/lnr_attendance"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
+                    android:layout_margin="10dp"
                     android:orientation="vertical">
 
                     <TextView

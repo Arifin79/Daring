@@ -30,13 +30,13 @@ public class SliderAdapter extends PagerAdapter {
     public int[] slide_image = {
             R.drawable.slider1,
             R.drawable.slider2,
-            R.drawable.slider1
+            R.drawable.slider3
     };
 
     public String[] slide_headings = {
-            "TODO",
-            "LEARNING",
-            "TEACHING"
+            "Belajar Daring",
+            "Siap Membantu",
+            "Menuju Impian"
     };
 
     public String[] slide_descs = {

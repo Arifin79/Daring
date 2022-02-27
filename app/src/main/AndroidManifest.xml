@@ -9,18 +9,30 @@
     <application
         android:name=".Adapter.AppController"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:exported="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/daring"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:largeHeap="true"
+        android:roundIcon="@drawable/daring"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DaringSchool">
-        <activity android:name=".Activity.LoginActivity"></activity>
+        android:theme="@style/Theme.DaringSchool"
+        android:usesCleartextTraffic="true"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
+        <activity android:name=".Activity.CreateAssignmentActivity"></activity>
+        <activity android:name=".Activity.GradeActivity" />
+        <activity android:name=".Activity.ExaminationActivity" />
+        <activity android:name=".Activity.ScheduleActivity" />
+        <activity android:name=".Activity.AssigmentActivity" />
+        <activity android:name=".Activity.HistoryAbsenActivity" />
+        <activity android:name=".Activity.RegisterActivity" />
+        <activity android:name=".Activity.ChangePasswordActivity" />
+        <activity android:name=".Activity.LoginActivity" />
         <activity android:name=".Activity.IntroSliderActivity" />
         <activity android:name=".Activity.AlarmActivity" />
         <activity android:name=".Activity.MainActivity" />
         <activity
             android:name=".Activity.SplashScreenActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
             tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

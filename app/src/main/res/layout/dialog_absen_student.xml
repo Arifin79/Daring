@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_backround_textbox"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:text="Keterangan"
+            fontPath="fonts/nunito_extra_bold.ttf"
+            tools:ignore="MissingPrefix" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:background="@drawable/btn_border"
+            android:layout_marginTop="5dp"
+            android:weightSum="3"
+            tools:ignore="RtlSymmetry">
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:entries="@array/spKeterangan" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="25dp"
+            android:text="Kelas"
+            fontPath="fonts/nunito_extra_bold.ttf"
+            tools:ignore="MissingPrefix" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:background="@drawable/btn_border"
+            android:layout_marginTop="5dp"
+            android:weightSum="3"
+            tools:ignore="RtlSymmetry">
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:entries="@array/spKelas" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            fontPath="fonts/nunito_extra_bold.ttf"
+            android:layout_marginTop="25dp"
+            android:text="Jam"
+            tools:ignore="MissingPrefix" />
+
+        <EditText
+            android:id="@+id/clockIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            fontPath="fonts/nunito_extra_bold.ttf"
+            android:layout_marginTop="5dp"
+            android:singleLine="true"
+            android:padding="10dp"
+            android:background="@drawable/btn_border"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="30dp"
+            fontPath="fonts/nunito_extra_bold.ttf"
+            android:text="Tanggal"
+            tools:ignore="MissingPrefix" />
+
+        <EditText
+            android:id="@+id/dateIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            fontPath="fonts/nunito_extra_bold.ttf"
+            android:singleLine="true"
+            android:padding="10dp"
+            android:background="@drawable/btn_border"
+            tools:ignore="MissingPrefix" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tidak"
+                android:background="@color/white"
+                android:layout_weight="1"
+                android:textColor="@color/md_blue_600"/>
+
+            <Button
+                android:id="@+id/btnYes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="YA"
+                android:background="@color/white"
+                android:layout_weight="1"
+                android:textColor="@color/md_blue_600" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

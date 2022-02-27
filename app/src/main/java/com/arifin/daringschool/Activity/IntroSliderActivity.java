@@ -42,8 +42,6 @@ public class IntroSliderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro_slider);
         ButterKnife.bind(this);
-        getSupportActionBar().hide();
-
 
         sliderAdapter = new SliderAdapter(this);
 
@@ -91,7 +89,7 @@ public class IntroSliderActivity extends AppCompatActivity {
 
         if (mDots.length> 0){
 
-            mDots[position].setTextColor(getResources().getColor(R.color.white));
+            mDots[position].setTextColor(getResources().getColor(R.color.grey));
         }
 
     }

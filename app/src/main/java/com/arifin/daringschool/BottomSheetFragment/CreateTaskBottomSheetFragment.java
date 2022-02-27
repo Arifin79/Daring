@@ -19,6 +19,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
 import com.arifin.daringschool.BroadcastReceiver.AlarmBroadcastReceiver;
 import com.arifin.daringschool.Database.DatabaseClient;
@@ -63,7 +65,7 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
     AlarmManager alarmManager;
     TimePickerDialog timePickerDialog;
     DatePickerDialog datePickerDialog;
-    TodoFragment fragment;
+    TodoFragment fragment = new TodoFragment();
     public static int count = 0;
 
     private BottomSheetBehavior.BottomSheetCallback mBottomSheetBehaviorCallback = new BottomSheetBehavior.BottomSheetCallback() {
@@ -140,7 +142,7 @@ public class CreateTaskBottomSheetFragment extends BottomSheetDialogFragment {
         });
     }
 
-    private boolean validateFields() {
+    public boolean validateFields() {
         if(addTaskTitle.getText().toString().equalsIgnoreCase("")) {
             Toast.makeText(fragment.getActivity(), "Please enter a valid title", Toast.LENGTH_SHORT).show();
             return false;

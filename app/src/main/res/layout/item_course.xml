@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="1dp"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        style="@style/CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/md_blue_600" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+
+                    <TextView
+                        android:id="@+id/lbl_course_assignment_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Assignment Name"
+                        android:textSize="11sp"/>
+
+                    <TextView
+                        android:id="@+id/tv_card_assignment_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tugas Pertemuan 01"
+                        android:textSize="14dp"/>
+
+
+                    <RelativeLayout
+                        android:id="@+id/rl_assignment_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Assignment Type" />
+
+                        <TextView
+                            android:id="@+id/tv_card_assignment_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="125dp"
+                            android:text="Tugas Tengah Semester" />
+
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:id="@+id/lbl_course_assignment_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textSize="11sp"
+                        android:text="Assignment Date" />
+
+                    <TextView
+                        android:id="@+id/tv_card_assignment_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:text="03-08-2018 s/d 14-09-2018" />
+
+
+                    <RelativeLayout
+                        android:id="@+id/rl_assignment_lecture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp">
+
+                        <TextView
+                            android:id="@+id/lbl_course_assignment_task"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="Task Assignment : " />
+
+                        <androidx.appcompat.widget.ButtonBarLayout
+                            android:id="@+id/btn_lecture_assignment"
+                            style="@style/Base.Widget.AppCompat.Button.Borderless"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:layout_toEndOf="@+id/lbl_course_assignment_task">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@drawable/ic_download" />
+
+                            <TextView
+                                android:id="@+id/tv_card_lecture_assignment"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="4dp"
+                                android:layout_marginTop="-2dp"
+                                android:text="Nama File"
+                                android:textColor="@color/md_blue_800" />
+
+                        </androidx.appcompat.widget.ButtonBarLayout>
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/seeMoreLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/lbl_course_assignment_submit_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Submit Date"
+                            android:textSize="11sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_card_assignment_submit_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2017-11-08 12:29:19"
+                            android:textSize="14sp"/>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/rl_assignment_student"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp">
+
+                            <TextView
+                                android:id="@+id/lbl_course_assignment_file"
+                                android:layout_width="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_height="wrap_content"
+                                android:text="File Assignment : " />
+
+                            <androidx.appcompat.widget.ButtonBarLayout
+                                android:id="@+id/btn_student_assignment"
+                                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:layout_toEndOf="@id/lbl_course_assignment_file"
+                                >
+
+                                <ImageView
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:src="@drawable/ic_download" />
+
+                                <TextView
+                                    android:id="@+id/tv_card_student_assignment"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_marginTop="-2dp"
+                                    android:text="Nama File"
+                                    android:textColor="@color/md_blue_800" />
+
+                            </androidx.appcompat.widget.ButtonBarLayout>
+
+                        </RelativeLayout>
+
+
+
+                        <TextView
+                            android:id="@+id/lbl_course_assignment_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="11sp"
+                            android:layout_marginTop="8dp"
+                            android:text="Approval Status" />
+
+                        <TextView
+                            android:id="@+id/tv_card_assignment_appstatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Approve"
+                            android:textSize="14sp"
+                            android:textColor="@color/md_green_500"
+                            android:textStyle="bold" />
+
+
+
+
+                        <TextView
+                            android:id="@+id/lbl_course_assignment_score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Score"
+                            android:textSize="11sp"
+                            android:layout_marginTop="8dp"/>
+
+                        <TextView
+                            android:id="@+id/tv_card_assignment_score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:text="80" />
+
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:id="@+id/detailButton"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="-8dp"
+                            android:text="See Detail"
+                            android:textColor="@color/md_blue_600"
+                            android:textSize="12sp" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btn_menu_assignment"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:visibility="visible"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/ic_more_vert" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

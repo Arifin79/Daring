@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Activity.CreateAssignmentActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/action_bar_create_assignment"
+        android:background="@color/white"
+        app:titleTextColor="@color/black"
+        />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ns_scroll_view"
+        android:layout_below="@+id/action_bar_create_assignment"
+        >
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:id="@+id/lnr_add_assignment_teacher"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:id="@+id/tv_AssignmentType"
+                android:layout_height="match_parent"
+                android:text="Assignment Type"
+                android:textSize="10sp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/HAssignmentName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Assignment Name">
+                <EditText
+                    android:id="@+id/et_assignment_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_add_assignment_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:textSize="10dp"
+                    android:layout_gravity="center_vertical"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_weight="1"
+                    android:drawablePadding="8dp"
+                    android:drawableLeft="@drawable/ic_event"
+                    android:gravity="center_vertical"
+                    android:text="Assignment Date" />
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Hintdescription"
+                android:hint="Description">
+                <EditText
+                    android:id="@+id/et_assignment_lecture_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.ButtonBarLayout
+                android:id="@+id/btn_assignment_lecture_file"
+                android:layout_width="match_parent"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:layout_height="60dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_cloud_upload" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_assignment_lecture_upload"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Upload File"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="8dp"
+                        android:id="@+id/tv_allowed_document"
+                        android:text="*Allowed document file"/>
+
+                </LinearLayout>
+            </androidx.appcompat.widget.ButtonBarLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_assignment_upload"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp" />
+
+            <Button
+                android:id="@+id/btn_submit_assignment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Submit"
+                android:textAllCaps="false"
+                android:textColor="@color/md_white_1000"
+                android:background="@drawable/shape_backround_textbox_profile" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

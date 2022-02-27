@@ -40,7 +40,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:elevation="1dp"
             android:orientation="horizontal">
 
@@ -65,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="25sp"
                 android:orientation="vertical">
 
                 <TextView
@@ -102,7 +104,7 @@
                 android:orientation="vertical"
                 android:paddingTop="50dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/shape_backround_textbox">
+                android:background="@drawable/shape_backround_textbox_profile">
 
                 <LinearLayout
                     android:id="@+id/lnr_changePw"
@@ -123,7 +125,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_gravity="center"
                         android:textStyle="bold"
-                        android:textColor="@color/md_grey_700"
+                        android:textColor="@color/white"
                         android:text="Ganti Kata Sandi"/>
 
                 </LinearLayout>
@@ -136,7 +138,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@drawable/shape_backround_textbox">
+                android:background="@drawable/shape_backround_textbox_profile">
 
                 <LinearLayout
                     android:id="@+id/btn_logout"

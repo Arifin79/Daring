@@ -9,15 +9,19 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.arifin.daringschool.Adapter.TaskAdapter;
 import com.arifin.daringschool.BottomSheetFragment.CreateTaskBottomSheetFragment;
@@ -48,14 +52,11 @@ public class TodoFragment extends Fragment implements CreateTaskBottomSheetFragm
     ImageView noDataImage;
     @BindView(R.id.calendar)
     ImageView calendar;
+    private TodoFragment fragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-
-    public TodoFragment() {
-
     }
 
     @Override
@@ -67,9 +68,9 @@ public class TodoFragment extends Fragment implements CreateTaskBottomSheetFragm
         setUpAdapter();
         getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         ComponentName receiver = new ComponentName(this.getActivity(), AlarmBroadcastReceiver.class);
-        PackageManager pm = getActivity().getPackageManager();
+        PackageManager pm = this.getActivity().getPackageManager();
         pm.setComponentEnabledSetting(receiver, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
-        Glide.with(getActivity().getApplicationContext()).load(R.drawable.first_note).into(noDataImage);
+        Glide.with(getActivity().getApplicationContext()).load(R.drawable.todo).into(noDataImage);
 
         addTask.setOnClickListener(view -> {
             CreateTaskBottomSheetFragment createTaskBottomSheetFragment = new CreateTaskBottomSheetFragment();
@@ -78,7 +79,6 @@ public class TodoFragment extends Fragment implements CreateTaskBottomSheetFragm
         });
 
         getSavedTasks();
-
 
         calendar.setOnClickListener(view -> {
             ShowCalenderViewBottomSheet showCalendarViewBottomSheet = new ShowCalenderViewBottomSheet();
@@ -89,9 +89,10 @@ public class TodoFragment extends Fragment implements CreateTaskBottomSheetFragm
         return view1;
     }
     public void setUpAdapter() {
-        taskAdapter = new TaskAdapter(TodoFragment.this, tasks, this);
+        taskAdapter = new TaskAdapter(this, tasks, this);
         taskRecycler.setLayoutManager(new LinearLayoutManager( getActivity().getApplicationContext()));
         taskRecycler.setAdapter(taskAdapter);
+        taskAdapter.notifyDataSetChanged();
     }
 
     private void getSavedTasks() {

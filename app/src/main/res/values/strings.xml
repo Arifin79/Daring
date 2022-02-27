@@ -6,4 +6,17 @@
     <string name="title_todo">Todo</string>
     <string name="title_profile">Profile</string>
     <string name="title_account">Akun</string>
+
+    <string-array name="spKeterangan">
+        <item>Masuk</item>
+        <item>Sakit</item>
+        <item>Izin</item>
+    </string-array>
+
+    <string-array name="spKelas">
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+
 </resources>
