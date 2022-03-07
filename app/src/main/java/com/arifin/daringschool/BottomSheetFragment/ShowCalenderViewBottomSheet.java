@@ -12,12 +12,10 @@ import androidx.annotation.RequiresApi;
 
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
-import com.arifin.daringschool.Database.DatabaseClient;
 import com.arifin.daringschool.Fragment.TodoFragment;
 import com.arifin.daringschool.Model.Task;
 import com.arifin.daringschool.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import org.jetbrains.annotations.NotNull;

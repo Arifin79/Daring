@@ -1,13 +1,10 @@
 package com.arifin.daringschool.Fragment;
 
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,12 +24,9 @@ import com.arifin.daringschool.Adapter.TaskAdapter;
 import com.arifin.daringschool.BottomSheetFragment.CreateTaskBottomSheetFragment;
 import com.arifin.daringschool.BottomSheetFragment.ShowCalenderViewBottomSheet;
 import com.arifin.daringschool.BroadcastReceiver.AlarmBroadcastReceiver;
-import com.arifin.daringschool.Database.DatabaseClient;
 import com.arifin.daringschool.Model.Task;
 import com.arifin.daringschool.R;
 import com.bumptech.glide.Glide;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
