@@ -1,5 +1,4 @@
 package com.arifin.daringschool.Database;
 
- class api {
-
+public interface DatabaseClient {
 }
