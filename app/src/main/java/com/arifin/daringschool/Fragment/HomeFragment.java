@@ -9,6 +9,8 @@ import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -26,11 +28,15 @@ import com.arifin.daringschool.Activity.ExaminationActivity;
 import com.arifin.daringschool.Activity.GradeActivity;
 import com.arifin.daringschool.Activity.HistoryAbsenActivity;
 import com.arifin.daringschool.Activity.ScheduleActivity;
+import com.arifin.daringschool.Adapter.ScheduleAdapter;
+import com.arifin.daringschool.Adapter.ViewScheduleAdpater;
+import com.arifin.daringschool.Model.Course;
 import com.arifin.daringschool.R;
 import com.fasterxml.jackson.core.util.MinimalPrettyPrinter;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -64,6 +70,8 @@ public class HomeFragment extends Fragment {
     CardView cvExam;
     @BindView(R.id.cv_grade)
     CardView cvGrade;
+    @BindView(R.id.rv_schedule)
+    RecyclerView rvSchedule;
 
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMMM", Locale.getDefault());
     SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("yyyy", Locale.getDefault());
@@ -73,6 +81,9 @@ public class HomeFragment extends Fragment {
     DatePickerDialog datePickerDialog;
     int mYear, mMonth, mDay;
     int mHour, mMinute;
+    ViewScheduleAdpater viewScheduleAdpater;
+    LinearLayoutManager layoutManagerAssigment;
+    ArrayList<Course> courseList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -88,6 +99,13 @@ public class HomeFragment extends Fragment {
 
         tvMonth.setText(simpleDateFormat.format(mCompactCalendarView.getFirstDayOfCurrentMonth()));
         tvYear.setText(simpleDateFormat2.format(mCompactCalendarView.getFirstDayOfCurrentMonth()));
+
+        listSchedule();
+
+        viewScheduleAdpater = new ViewScheduleAdpater(courseList, getContext());
+        layoutManagerAssigment = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        rvSchedule.setLayoutManager(layoutManagerAssigment);
+        rvSchedule.setAdapter(viewScheduleAdpater);
 
         imgArrowRight.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -224,8 +242,19 @@ public class HomeFragment extends Fragment {
                 Window window = dialog.getWindow();
                 window.setLayout(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
             }
+
         });
 
         return view;
+    }
+
+    private void listSchedule() {
+        courseList = new ArrayList<>();
+        for (int i = 0; i<3 ; i++) {
+            Course course = new Course();
+            course.setAssignmentName("Indonesia");
+            courseList.add(course);
+        }
+
     }
 }

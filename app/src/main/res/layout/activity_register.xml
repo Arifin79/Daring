@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/activityRegister"
     android:background="@color/white"
     tools:context=".Activity.RegisterActivity">
 
@@ -43,14 +44,14 @@
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/txtUserName"
+                    android:id="@+id/txtEmailRegist"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:background="@color/white"
                     android:drawablePadding="10dp"
-                    android:hint="Email/Nama"
+                    android:hint="Email"
                     android:inputType="text"
                     android:padding="5dp"
                     android:textColor="#6C6C6C"
@@ -68,6 +69,7 @@
                 android:weightSum="1">
 
                 <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/txtPasswordRegist"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="40dp"
@@ -75,8 +77,8 @@
                     android:background="@color/white"
                     android:drawablePadding="10dp"
                     android:ems="10"
-                    android:hint="Kata sandi"
                     android:inputType="textPassword"
+                    android:hint="Kata sandi"
                     android:layout_margin="10dp"
                     android:padding="5dp"
                     android:textColor="#6C6C6C"
@@ -84,6 +86,7 @@
                     android:textColorHint="@android:color/white" />
 
                 <ImageView
+                    android:id="@+id/show_password1"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="end|center"
@@ -106,7 +109,7 @@
                 android:weightSum="1">
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/txtPassword"
+                    android:id="@+id/txtPaswordConfirm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="40dp"
@@ -114,7 +117,7 @@
                     android:background="@color/white"
                     android:drawablePadding="10dp"
                     android:ems="10"
-                    android:hint="Konfirmasi kata sandi"
+                    android:hint="Ulangi kata sandi"
                     android:inputType="textPassword"
                     android:layout_margin="10dp"
                     android:padding="5dp"
@@ -123,7 +126,7 @@
                     android:textColorHint="@android:color/white" />
 
                 <ImageView
-                    android:id="@+id/show_password"
+                    android:id="@+id/show_password_confirm_regist"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="end|center"
@@ -141,7 +144,7 @@
                 android:layout_weight="1"/>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnLogin"
+                android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_background_primary_color"

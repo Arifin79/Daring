@@ -7,12 +7,15 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.arifin.daringschool.Fragment.HomeFragment;
 import com.arifin.daringschool.Fragment.ProfileFragment;
 import com.arifin.daringschool.Fragment.TodoFragment;
+import com.arifin.daringschool.Model.Login.model.ResponseLogin;
 import com.arifin.daringschool.R;
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -20,6 +23,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
 
     MeowBottomNavigation bottomNavigation;
+    ResponseLogin loginResponse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +77,13 @@ public class MainActivity extends AppCompatActivity {
 //                        , Toast.LENGTH_SHORT).show();
             }
         });
+
+        Intent intent = getIntent();
+        if (intent.getExtras() != null){
+            loginResponse = (ResponseLogin) intent.getSerializableExtra("data");
+
+            Log.e("TAG", "========>" + loginResponse.getResponseData().get(0).getEmail() );
+        }
 
     }
     private void loadFragment(Fragment fragment) {

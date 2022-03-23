@@ -63,10 +63,10 @@
                                 android:id="@+id/img_profile_dashboard"
                                 android:layout_width="75dp"
                                 android:layout_height="75dp"
-                                android:padding="10dp"
                                 android:layout_marginStart="10dp"
                                 android:layout_marginEnd="10dp"
-                                android:src="@drawable/noavatar"/>
+                                android:padding="10dp"
+                                android:src="@drawable/people" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"

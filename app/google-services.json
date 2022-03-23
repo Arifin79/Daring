@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "398779808027",
+    "project_id": "logindaringschool",
+    "storage_bucket": "logindaringschool.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398779808027:android:a68b59bf5d32ddbd523bbe",
+        "android_client_info": {
+          "package_name": "com.arifin.daringschool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398779808027-itrper5f8bln7lh09tdj3gaimciq5gqm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arifin.daringschool",
+            "certificate_hash": "1eea06c1f44ccaa90c29defd21467abe4574e957"
+          }
+        },
+        {
+          "client_id": "398779808027-0d07bp0carcqktqhks7o06v04ttt8s6o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARZ90cUXYQy54e8Fy4nmuz4zQkC1G4r9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398779808027-0d07bp0carcqktqhks7o06v04ttt8s6o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

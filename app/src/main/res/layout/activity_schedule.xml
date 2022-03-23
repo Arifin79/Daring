@@ -15,4 +15,11 @@
         app:titleTextColor="@color/black"
         />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_schedule_assignment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:layout_below="@id/action_bar_schedule"/>
+
 </RelativeLayout>

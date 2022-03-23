@@ -28,10 +28,12 @@
         android:id="@+id/descSlider"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
         android:textSize="16sp"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:text="lorem"
+        android:lineSpacingExtra="10sp"
         android:textColor="@color/black"/>
 
 </LinearLayout>

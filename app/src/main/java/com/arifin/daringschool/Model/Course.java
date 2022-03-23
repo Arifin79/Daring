@@ -7,6 +7,24 @@ public class Course {
     String submitDate;
     String assignmentFileSubmit;
     String score;
+    String classes;
+    String nameStudent;
+
+    public String getNameStudent() {
+        return nameStudent;
+    }
+
+    public void setNameStudent(String nameStudent) {
+        this.nameStudent = nameStudent;
+    }
+
+    public String getClasses() {
+        return classes;
+    }
+
+    public void setClasses(String classes) {
+        this.classes = classes;
+    }
 
     public String getAssignmentName() {
         return assignmentName;

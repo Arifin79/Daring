@@ -40,9 +40,9 @@ public class SliderAdapter extends PagerAdapter {
     };
 
     public String[] slide_descs = {
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            "Daring School Menyediakan Pembelajaran Dari Jarak Jauh Yang Sangat Dibutuhkan Di Masa Pandemi Seperti Sekarang",
+            "Daring School Siap Membantu Para Orang Tua/Guru",
+            "daring school akan membantu  untuk mencapai impian kalian secara bertahap, kami akan selalu membantu setiap langkah yang kalian lakukan"
     };
 
     @Override
