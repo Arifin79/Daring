@@ -17,9 +17,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.arifin.daringschool.Activity.MainActivity;
 import com.arifin.daringschool.BottomSheetFragment.CreateTaskBottomSheetFragment;
-import com.arifin.daringschool.Database.DatabaseClient;
 import com.arifin.daringschool.Fragment.TodoFragment;
 import com.arifin.daringschool.Model.Task;
 import com.arifin.daringschool.R;

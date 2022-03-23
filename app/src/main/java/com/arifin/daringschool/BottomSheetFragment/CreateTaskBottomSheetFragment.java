@@ -1,13 +1,11 @@
 package com.arifin.daringschool.BottomSheetFragment;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -23,7 +21,6 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 import com.arifin.daringschool.BroadcastReceiver.AlarmBroadcastReceiver;
-import com.arifin.daringschool.Database.DatabaseClient;
 import com.arifin.daringschool.Fragment.TodoFragment;
 import com.arifin.daringschool.Model.Task;
 import com.arifin.daringschool.R;
