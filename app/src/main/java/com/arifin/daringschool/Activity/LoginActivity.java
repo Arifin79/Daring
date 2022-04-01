@@ -2,54 +2,34 @@ package com.arifin.daringschool.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatEditText;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Html;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.arifin.daringschool.Model.Login.controller.ApiClient;
-import com.arifin.daringschool.Model.Login.model.Login;
-import com.arifin.daringschool.Model.Login.controller.LoginInterface;
-import com.arifin.daringschool.Model.Login.model.ResponseLogin;
+import com.arifin.daringschool.Activity.UiParent.MainActivityParent;
+import com.arifin.daringschool.Activity.UiStudent.MainActivityStudent;
+import com.arifin.daringschool.Activity.UiTeacher.MainActivityTeacher;
+import com.arifin.daringschool.Model.Login.preferences;
 import com.arifin.daringschool.R;
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.util.Iterator;
-import java.util.Map;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -58,19 +38,20 @@ public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
     @BindView(R.id.loginActivity)
     RelativeLayout constraintLayout;
-    @BindView(R.id.tv_signUp)
-    TextView tvSignUp;
+//    @BindView(R.id.tv_signUp)
+//    TextView tvSignUp;
     @BindView(R.id.txtUserName)
-    EditText emailEdit;
+    EditText username;
     @BindView(R.id.txtPassword)
-    EditText passwordEdit;
+    EditText password;
     @BindView(R.id.show_password)
     ImageView showPassword;
+    @BindView(R.id.active)
+    Switch active;
 
     String rbUsername, rbPassword;
     private FirebaseAuth mAuth;
     int show_stat = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,51 +63,101 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginUser();
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                databaseReference.child("login").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        String input1 = username.getText().toString();
+                        String input2 = password.getText().toString();
+
+                        if (dataSnapshot.child(input1).exists()) {
+                            if (dataSnapshot.child(input1).child("password").getValue(String.class).equals(input2)) {
+                                if (active.isChecked()) {
+                                    if (dataSnapshot.child(input1).child("as").getValue(String.class).equals("admin")) {
+                                        preferences.setDataLogin(LoginActivity.this, true);
+                                        preferences.setDataAs(LoginActivity.this, "admin");
+                                        startActivity(new Intent(LoginActivity.this, MainActivityTeacher.class));
+                                    } else if (dataSnapshot.child(input1).child("as").getValue(String.class).equals("user")){
+                                        preferences.setDataLogin(LoginActivity.this, true);
+                                        preferences.setDataAs(LoginActivity.this, "user");
+                                        startActivity(new Intent(LoginActivity.this, MainActivityStudent.class));
+                                    } else if (dataSnapshot.child(input1).child("as").getValue(String.class).equals("parent")){
+                                        preferences.setDataLogin(LoginActivity.this, true);
+                                        preferences.setDataAs(LoginActivity.this, "parent");
+                                        startActivity(new Intent(LoginActivity.this, MainActivityParent.class));
+                                    }
+                                } else {
+                                    if (dataSnapshot.child(input1).child("as").getValue(String.class).equals("admin")) {
+                                        preferences.setDataLogin(LoginActivity.this, false);
+                                        startActivity(new Intent(LoginActivity.this, MainActivityTeacher.class));
+
+                                    } else if (dataSnapshot.child(input1).child("as").getValue(String.class).equals("user")){
+                                        preferences.setDataLogin(LoginActivity.this, false);
+                                        startActivity(new Intent(LoginActivity.this, MainActivityStudent.class));
+
+                                    } else if (dataSnapshot.child(input1).child("as").getValue(String.class).equals("parent")){
+                                        preferences.setDataLogin(LoginActivity.this, false);
+                                        startActivity(new Intent(LoginActivity.this, MainActivityParent.class));
+                                    }
+                                }
+
+                            } else {
+                                Toast.makeText(LoginActivity.this, "Kata sandi salah", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Data belum terdaftar", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
         });
 
-        tvSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(i);
-                finish();
-            }
-        });
+//        tvSignUp.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
+//                startActivity(i);
+//                finish();
+//            }
+//        });
 
         showPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (show_stat == 0) {
                     show_stat = 1;
-                    passwordEdit.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                     showPassword.setImageResource(R.drawable.ic_visibility_off);
-                    passwordEdit.setSelection(passwordEdit.getText().length());
+                    password.setSelection(password.getText().length());
                 } else {
                     show_stat = 0;
-                    passwordEdit.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    password.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     showPassword.setImageResource(R.drawable.ic_show_password);
-                    passwordEdit.setSelection(passwordEdit.getText().length());
+                    password.setSelection(password.getText().length());
                 }
             }
         });
     }
 
-    private void loginUser(){
-        rbUsername = emailEdit.getText().toString();
-        rbPassword = passwordEdit.getText().toString();
-        mAuth.signInWithEmailAndPassword(rbUsername, rbPassword).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(i);
-                    finish();
-                } else {
-                    Toast.makeText(LoginActivity.this, "Email atau Password anda salah", Toast.LENGTH_SHORT).show();
-                }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (preferences.getDataLogin(this)) {
+            if (preferences.getDataAs(this).equals("admin")) {
+                startActivity(new Intent(this, MainActivityTeacher.class));
+                finish();
+            } else if (preferences.getDataAs(this).equals("user")){
+                startActivity(new Intent(this, MainActivityStudent.class));
+                finish();
+            } else {
+                startActivity(new Intent(this, MainActivityParent.class));
+                finish();
             }
-        });
+        }
     }
 }

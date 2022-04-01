@@ -18,7 +18,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.arifin.daringschool.Model.Login.controller.LoginInterface;
 import com.arifin.daringschool.R;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.JsonNode;

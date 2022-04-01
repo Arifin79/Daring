@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragment.HomeFragment">
+    tools:context=".Activity.UiStudent.Fragment.HomeFragment">
     
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -66,7 +66,7 @@
                                 android:layout_marginStart="10dp"
                                 android:layout_marginEnd="10dp"
                                 android:padding="10dp"
-                                android:src="@drawable/people" />
+                                android:src="@drawable/noavatar" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -88,7 +88,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
-                                    android:text="Fahmi Wijaya"
+                                    android:text=""
                                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
                                     <LinearLayout
@@ -114,7 +114,7 @@
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:paddingLeft="10dp"
-                                                android:text="6"
+                                                android:text=""
                                                 android:textStyle="bold"/>
 
                                             <TextView
@@ -129,7 +129,7 @@
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:paddingLeft="10dp"
-                                                android:text="12"
+                                                android:text=""
                                                 android:textStyle="bold"/>
 
                                         </LinearLayout>
@@ -174,7 +174,7 @@
                         android:paddingRight="40dp"
                         android:textColor="@color/black"/>
 
-                    <TextView
+                    <DigitalClock
                         android:id="@+id/txt_attendance_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -182,7 +182,6 @@
                         android:layout_marginTop="10dp"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:textStyle="bold"
-                        android:text="07 : 00 AM"
                         android:layout_marginRight="20dp"
                         android:textColor="@color/black"/>
 
@@ -243,11 +242,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
-                        android:layout_gravity="center"
                         android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/cv_duty"
+                            android:id="@+id/cv_eBook"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_gravity="center"
@@ -259,7 +257,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_alignParentLeft="true"
-                                android:src="@drawable/tugas" />
+                                android:src="@drawable/ic_book" />
 
                         </androidx.cardview.widget.CardView>
 
@@ -267,7 +265,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="Tugas"
+                            android:text="E - Book"
                             android:layout_gravity="center"/>
 
                     </LinearLayout>

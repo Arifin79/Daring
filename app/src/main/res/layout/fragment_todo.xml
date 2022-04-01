@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/white"
     android:paddingLeft="20dp"
-    tools:context=".Fragment.TodoFragment">
+    tools:context=".Activity.UiStudent.Fragment.TodoFragment">
 
     <FrameLayout
         android:layout_width="match_parent"

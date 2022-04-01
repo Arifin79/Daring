@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="20dp"
     android:background="@drawable/shape_backround_textbox"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
@@ -30,6 +31,7 @@
             tools:ignore="RtlSymmetry">
 
             <Spinner
+                android:id="@+id/spKeterangan"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
@@ -55,6 +57,7 @@
             tools:ignore="RtlSymmetry">
 
             <Spinner
+                android:id="@+id/spKelas"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"

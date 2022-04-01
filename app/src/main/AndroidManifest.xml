@@ -23,18 +23,21 @@
         android:theme="@style/Theme.DaringSchool"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
-        <activity android:name=".Activity.CreateAssignmentActivity"></activity>
-        <activity android:name=".Activity.GradeActivity" />
-        <activity android:name=".Activity.ExaminationActivity" />
-        <activity android:name=".Activity.ScheduleActivity" />
-        <activity android:name=".Activity.AssigmentActivity" />
-        <activity android:name=".Activity.HistoryAbsenActivity" />
+        <activity android:name=".Activity.UiParent.MainActivityParent"></activity>
+        <activity android:name=".Activity.UiTeacher.MainActivityTeacher" />
+        <activity android:name=".Activity.UiStudent.Activity.EditProfileActivity" />
+        <activity android:name=".Activity.UiStudent.Activity.CreateAssignmentActivity" />
+        <activity android:name=".Activity.UiStudent.Activity.GradeActivity" />
+        <activity android:name=".Activity.UiTeacher.Activity.ExaminationActivity" />
+        <activity android:name=".Activity.UiStudent.Activity.ScheduleActivity" />
+        <activity android:name=".Activity.UiStudent.Activity.AssigmentActivity" />
+        <activity android:name=".Activity.UiStudent.Activity.HistoryAbsenActivity" />
         <activity android:name=".Activity.RegisterActivity" />
-        <activity android:name=".Activity.ChangePasswordActivity" />
+        <activity android:name=".Activity.UiStudent.Activity.ChangePasswordActivity" />
         <activity android:name=".Activity.LoginActivity" />
         <activity android:name=".Activity.IntroSliderActivity" />
-        <activity android:name=".Activity.AlarmActivity" />
-        <activity android:name=".Activity.MainActivity" />
+        <activity android:name=".CalendarBottomSheetFragment.AlarmActivity" />
+        <activity android:name=".Activity.UiStudent.MainActivityStudent" />
         <activity
             android:name=".Activity.SplashScreenActivity"
             tools:ignore="InnerclassSeparator">
@@ -46,7 +49,7 @@
         </activity>
 
         <receiver
-            android:name=".BroadcastReceiver.AlarmBroadcastReceiver"
+            android:name=".CalendarBottomSheetFragment.AlarmBroadcastReceiver"
             android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -54,7 +57,7 @@
         </receiver>
 
         <service
-            android:name=".BroadcastReceiver.AlarmService"
+            android:name=".CalendarBottomSheetFragment.AlarmService"
             android:enabled="true"
             android:exported="true" />
     </application>
