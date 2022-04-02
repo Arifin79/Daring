@@ -88,7 +88,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
-                                    android:text="Fahmi Wijaya"
+                                    android:text="Ahmad Satria Wijaya"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
                                 <LinearLayout
@@ -107,30 +107,7 @@
                                             android:id="@+id/lbl_semester_profile"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:text="Semester"/>
-
-                                        <TextView
-                                            android:id="@+id/tv_semester_profile"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:paddingLeft="10dp"
-                                            android:text="6"
-                                            android:textStyle="bold"/>
-
-                                        <TextView
-                                            android:id="@+id/lbl_class_profile"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:paddingLeft="10dp"
-                                            android:text="Kelas"/>
-
-                                        <TextView
-                                            android:id="@+id/tv_class_profile"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:paddingLeft="10dp"
-                                            android:text="12"
-                                            android:textStyle="bold"/>
+                                            android:text="Wali murid"/>
 
                                     </LinearLayout>
 
