@@ -10,8 +10,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.arifin.daringschool.Activity.UiStudent.Adapter.HistoryAbsenAdapter;
-import com.arifin.daringschool.Model.Absen;
-import com.arifin.daringschool.Model.Student;
+import com.arifin.daringschool.Activity.UiStudent.Model.StudentAbsen;
 import com.arifin.daringschool.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,7 +21,6 @@ import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,7 +34,7 @@ public class HistoryAbsenActivity extends AppCompatActivity {
     RecyclerView rvHistoryAbsen;
 
     HistoryAbsenAdapter historyAdapter;
-    ArrayList<Student> absenList;
+    ArrayList<StudentAbsen> absenList;
 
     DatabaseReference studentRef;
 
@@ -66,7 +64,7 @@ public class HistoryAbsenActivity extends AppCompatActivity {
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
 
                 for (DataSnapshot studentDatasnap : snapshot.getChildren()){
-                    Student student = studentDatasnap.getValue(Student.class);
+                    StudentAbsen student = studentDatasnap.getValue(StudentAbsen.class);
                     absenList.add(student);
                 }
                 historyAdapter.notifyDataSetChanged();

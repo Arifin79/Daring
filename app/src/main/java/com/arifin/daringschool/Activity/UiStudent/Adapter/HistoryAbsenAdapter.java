@@ -5,29 +5,24 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.arifin.daringschool.Model.Absen;
-import com.arifin.daringschool.Model.Course;
-import com.arifin.daringschool.Model.Student;
+import com.arifin.daringschool.Activity.UiStudent.Model.StudentAbsen;
 import com.arifin.daringschool.R;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class HistoryAbsenAdapter extends RecyclerView.Adapter<HistoryAbsenAdapter.HistoryHolder> {
 
-    private ArrayList<Student> list;
+    private ArrayList<StudentAbsen> list;
     private Context mcontext;
 
-    public HistoryAbsenAdapter(Activity mcontext, ArrayList<Student> list) {
+    public HistoryAbsenAdapter(Activity mcontext, ArrayList<StudentAbsen> list) {
         this.mcontext=mcontext;
         this.list = list;
     }
@@ -43,10 +38,11 @@ public class HistoryAbsenAdapter extends RecyclerView.Adapter<HistoryAbsenAdapte
     @Override
     public void onBindViewHolder(@NonNull @NotNull HistoryAbsenAdapter.HistoryHolder holder, int position) {
 
-        holder.keterangan.setText(list.get(position).getKeterangan());
-        holder.kelas.setText(list.get(position).getKelas());
         holder.absenPadaJam.setText(list.get(position).getAbsenPadaJam());
         holder.tanggal.setText(list.get(position).getTanggal());
+        holder.keterangan.setText(list.get(position).getKeterangan());
+        holder.kelas.setText(list.get(position).getKelas());
+
 
     }
 

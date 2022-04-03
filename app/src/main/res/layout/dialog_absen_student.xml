@@ -82,6 +82,8 @@
             android:layout_marginTop="5dp"
             android:singleLine="true"
             android:padding="10dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:background="@drawable/btn_border"
             tools:ignore="MissingPrefix" />
 
@@ -102,6 +104,8 @@
             fontPath="fonts/nunito_extra_bold.ttf"
             android:singleLine="true"
             android:padding="10dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:background="@drawable/btn_border"
             tools:ignore="MissingPrefix" />
 

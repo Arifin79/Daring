@@ -58,7 +58,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/people"/>
+                    android:src="@drawable/noavatar"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -79,13 +79,29 @@
                     android:textColor="@color/black"
                     android:text="Fahmi Wijaya"/>
 
-                <TextView
-                    android:id="@+id/tv_code_account"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textColor="@color/black_overlay"
-                    android:text="kelas"/>
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="@color/black_overlay"
+                        android:text="kelas"/>
+
+                    <TextView
+                        android:id="@+id/tvClassAccount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black_overlay"
+                        android:text=""/>
+                </LinearLayout>
+
+
 
             </LinearLayout>
 

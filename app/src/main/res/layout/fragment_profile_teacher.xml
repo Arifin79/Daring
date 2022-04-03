@@ -54,7 +54,7 @@
                 app:cardCornerRadius="100dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/img_profile_account"
+                    android:id="@+id/img_profile_account_teacher"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
@@ -71,7 +71,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_profile_account"
+                    android:id="@+id/tv_profile_account_teacher"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
@@ -80,12 +80,11 @@
                     android:text="Fahmi Wijaya"/>
 
                 <TextView
-                    android:id="@+id/tv_code_account"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:textColor="@color/black_overlay"
-                    android:text="kelas"/>
+                    android:text="Guru"/>
 
             </LinearLayout>
 

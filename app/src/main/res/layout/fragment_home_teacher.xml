@@ -60,13 +60,13 @@
                             android:orientation="horizontal">
 
                             <de.hdodenhof.circleimageview.CircleImageView
-                                android:id="@+id/img_profile_dashboard"
+                                android:id="@+id/img_profile_dashboard_teacher"
                                 android:layout_width="75dp"
                                 android:layout_height="75dp"
                                 android:layout_marginStart="10dp"
                                 android:layout_marginEnd="10dp"
-                                android:padding="10dp"
-                                android:src="@drawable/people" />
+                                android:padding="5dp"
+                                android:src="@drawable/noavatar" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -84,11 +84,11 @@
                                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
                                 <TextView
-                                    android:id="@+id/tv_code_profile"
+                                    android:id="@+id/tv_code_profile_teacher"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
-                                    android:text="Fahmi Wijaya"
+                                    android:text=""
                                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
                                 <LinearLayout
@@ -107,30 +107,8 @@
                                             android:id="@+id/lbl_semester_profile"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:text="Semester"/>
-
-                                        <TextView
-                                            android:id="@+id/tv_semester_profile"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:paddingLeft="10dp"
-                                            android:text="6"
-                                            android:textStyle="bold"/>
-
-                                        <TextView
-                                            android:id="@+id/lbl_class_profile"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:paddingLeft="10dp"
-                                            android:text="Kelas"/>
-
-                                        <TextView
-                                            android:id="@+id/tv_class_profile"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:paddingLeft="10dp"
-                                            android:text="12"
-                                            android:textStyle="bold"/>
+                                            android:textStyle="bold"
+                                            android:text="Guru"/>
 
                                     </LinearLayout>
 
@@ -188,12 +166,11 @@
                 </LinearLayout>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/img_attendance_history"
+                    android:id="@+id/img_attendance_history_teacher"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginEnd="10dp"
                     android:layout_alignParentRight="true"
-                    android:layout_toStartOf="@id/img_fingerprint"
                     app:cardCornerRadius="100dp">
 
                     <ImageView

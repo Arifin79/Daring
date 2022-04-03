@@ -1,19 +1,11 @@
-package com.arifin.daringschool.Model;
+package com.arifin.daringschool.Activity.UiStudent.Model;
 
-public class Absen {
-    String namaSiswa;
+public class StudentAbsen {
+
+    String keterangan;
     String kelas;
     String absenPadaJam;
     String tanggal;
-    String keterangan;
-
-    public String getNamaSiswa() {
-        return namaSiswa;
-    }
-
-    public void setNamaSiswa(String namaSiswa) {
-        this.namaSiswa = namaSiswa;
-    }
 
     public String getKelas() {
         return kelas;

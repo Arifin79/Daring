@@ -1,4 +1,4 @@
-package com.arifin.daringschool.Activity.UiStudent.Activity;
+package com.arifin.daringschool.Activity.UiTeacher.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

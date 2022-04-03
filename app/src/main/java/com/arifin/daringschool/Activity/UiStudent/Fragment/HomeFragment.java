@@ -26,17 +26,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.arifin.daringschool.Activity.LoginActivity;
-import com.arifin.daringschool.Activity.UiStudent.Activity.AssigmentActivity;
 import com.arifin.daringschool.Activity.UiTeacher.Activity.ExaminationActivity;
 import com.arifin.daringschool.Activity.UiStudent.Activity.GradeActivity;
 import com.arifin.daringschool.Activity.UiStudent.Activity.HistoryAbsenActivity;
 import com.arifin.daringschool.Activity.UiStudent.Activity.ScheduleActivity;
 import com.arifin.daringschool.Activity.UiStudent.Adapter.ViewScheduleAdpater;
-import com.arifin.daringschool.Model.Absen;
 import com.arifin.daringschool.Model.Course;
-import com.arifin.daringschool.Model.Login.preferences;
-import com.arifin.daringschool.Model.Student;
 import com.arifin.daringschool.R;
 import com.fasterxml.jackson.core.util.MinimalPrettyPrinter;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
@@ -51,14 +46,12 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
-import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 
 import butterknife.BindView;
@@ -113,6 +106,7 @@ public class HomeFragment extends Fragment {
     ViewScheduleAdpater viewScheduleAdpater;
     LinearLayoutManager layoutManagerAssigment;
     ArrayList<Course> courseList;
+    TextView urlProfile;
 
     DatabaseReference studentRef;
     DatabaseReference studentRefDashboard;
@@ -138,16 +132,17 @@ public class HomeFragment extends Fragment {
 
 
         studentRef = FirebaseDatabase.getInstance().getReference("login/Fahmi Wijaya").child("Absen");
-        studentRefDashboard = FirebaseDatabase.getInstance().getReference("Fahmi Wijaya");
+
+        studentRefDashboard = FirebaseDatabase.getInstance().getReference("login/Fahmi Wijaya").child("Profile");
 
         studentRefDashboard.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 for (DataSnapshot ds: snapshot.getChildren()) {
-                    Picasso.get().load("imgProfile").into(imgProfile);
-                    tvNameDashboard.setText(ds.child("username").getValue().toString());
+                    Picasso.get().load(ds.child("imgProfile").getValue().toString()).into(imgProfile);
+                    tvNameDashboard.setText(ds.child("nameProfile").getValue().toString());
                     tvSemester.setText(ds.child("semester").getValue().toString());
-                    tvClassProfile.setText(ds.child("kelas").getValue().toString());
+                    tvClassProfile.setText(ds.child("class").getValue().toString());
                 }
             }
 
@@ -257,12 +252,13 @@ public class HomeFragment extends Fragment {
                         mMinute = c.get(Calendar.MINUTE);
 
                         // Launch Time Picker Dialog
-                        timePickerDialog = new TimePickerDialog(getActivity(),
+                        timePickerDialog = new TimePickerDialog(HomeFragment.this.getContext(),
                                 (view12, hourOfDay, minute) -> {
                                     etClockIn.setText(hourOfDay + ":" + minute);
                                     timePickerDialog.dismiss();
                                 }, mHour, mMinute, false);
                         timePickerDialog.show();
+
                     }
                     return true;
                 });
@@ -273,7 +269,7 @@ public class HomeFragment extends Fragment {
                         mYear = c.get(Calendar.YEAR);
                         mMonth = c.get(Calendar.MONTH);
                         mDay = c.get(Calendar.DAY_OF_MONTH);
-                        datePickerDialog = new DatePickerDialog(getActivity(),
+                        datePickerDialog = new DatePickerDialog(HomeFragment.this.getContext(),
                                 (view1, year, monthOfYear, dayOfMonth) -> {
                                     etDateIn.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
                                     datePickerDialog.dismiss();
@@ -297,10 +293,10 @@ public class HomeFragment extends Fragment {
 
                         HashMap<String, String> userMap = new HashMap<>();
 
-                        String jam =  etClockIn.getText().toString();
-                        String tanggal =  etDateIn.getText().toString();
                         String keterangan =  spKeterangan.getSelectedItem().toString();
                         String kelas =  spKelas.getSelectedItem().toString();
+                        String tanggal =  etDateIn.getText().toString();
+                        String jam =  etClockIn.getText().toString();
 
                         userMap.put("absenPadaJam", jam);
                         userMap.put("tanggal", tanggal);
@@ -311,6 +307,7 @@ public class HomeFragment extends Fragment {
                             @Override
                             public void onComplete(@NonNull @NotNull Task<Void> task) {
                                 Toast.makeText(getActivity(), "Data Inseret!", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
                             }
                         });
                     }

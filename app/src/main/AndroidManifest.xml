@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:name=".Adapter.AppController"
@@ -23,14 +24,14 @@
         android:theme="@style/Theme.DaringSchool"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
-        <activity android:name=".Activity.UiParent.MainActivityParent"></activity>
+        <activity android:name=".Activity.UiParent.MainActivityParent" />
         <activity android:name=".Activity.UiTeacher.MainActivityTeacher" />
         <activity android:name=".Activity.UiStudent.Activity.EditProfileActivity" />
-        <activity android:name=".Activity.UiStudent.Activity.CreateAssignmentActivity" />
+        <activity android:name=".Activity.UiTeacher.Activity.CreateAssignmentActivity" />
         <activity android:name=".Activity.UiStudent.Activity.GradeActivity" />
         <activity android:name=".Activity.UiTeacher.Activity.ExaminationActivity" />
         <activity android:name=".Activity.UiStudent.Activity.ScheduleActivity" />
-        <activity android:name=".Activity.UiStudent.Activity.AssigmentActivity" />
+        <activity android:name=".Activity.UiTeacher.Activity.AssigmentActivity" />
         <activity android:name=".Activity.UiStudent.Activity.HistoryAbsenActivity" />
         <activity android:name=".Activity.RegisterActivity" />
         <activity android:name=".Activity.UiStudent.Activity.ChangePasswordActivity" />
