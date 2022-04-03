@@ -89,7 +89,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
                                     android:text="Ahmad Satria Wijaya"
-                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                    />
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -107,7 +108,8 @@
                                             android:id="@+id/lbl_semester_profile"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:text="Wali murid"/>
+                                            android:text="Wali murid"
+                                            android:textStyle="bold"/>
 
                                     </LinearLayout>
 
