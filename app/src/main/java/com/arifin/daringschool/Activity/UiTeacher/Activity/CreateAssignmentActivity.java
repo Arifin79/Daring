@@ -5,7 +5,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ButtonBarLayout;
 import androidx.appcompat.widget.Toolbar;
-import androidx.room.Database;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,13 +13,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.arifin.daringschool.Model.putPDF;
+import com.arifin.daringschool.Activity.UiTeacher.Model.putPDF;
 import com.arifin.daringschool.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -37,8 +34,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class CreateAssignmentActivity extends AppCompatActivity {
-
-    private static final int PICK_IMAGE_REQUEST = 1;
 
     @BindView(R.id.action_bar_create_assignment)
     Toolbar actionBar;

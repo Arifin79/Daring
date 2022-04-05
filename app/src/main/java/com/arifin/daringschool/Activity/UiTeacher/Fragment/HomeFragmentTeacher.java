@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.arifin.daringschool.Activity.UiTeacher.Activity.AssigmentActivity;
 import com.arifin.daringschool.Activity.UiStudent.Activity.HistoryAbsenActivity;
+import com.arifin.daringschool.Activity.UiTeacher.Activity.EbookActivity;
 import com.arifin.daringschool.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -38,6 +39,8 @@ public class HomeFragmentTeacher extends Fragment {
     CardView imgAttendanceHistory;
     @BindView(R.id.cv_duty)
     CardView cvDuty;
+    @BindView(R.id.cv_eBook)
+    CardView cvEbok;
 
     DatabaseReference studentRef;
     DatabaseReference teacherRefDashboard;
@@ -84,6 +87,14 @@ public class HomeFragmentTeacher extends Fragment {
             }
         });
 
+        cvEbok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeFragmentTeacher.this.getActivity(), EbookActivity.class);
+                startActivity(i);
+            }
+        });
+
         imgAttendanceHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,4 +105,5 @@ public class HomeFragmentTeacher extends Fragment {
 
         return view;
     }
+
 }

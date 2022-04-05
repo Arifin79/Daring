@@ -1,4 +1,4 @@
-package com.arifin.daringschool.Model;
+package com.arifin.daringschool.Activity.UiTeacher.Model;
 
 public class putPDF {
 

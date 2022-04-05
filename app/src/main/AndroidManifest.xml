@@ -13,17 +13,14 @@
 
     <application
         android:name=".Adapter.AppController"
-        android:allowBackup="true"
-        android:exported="true"
-        android:hardwareAccelerated="true"
         android:icon="@drawable/daring"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:roundIcon="@drawable/daring"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DaringSchool"
-        android:usesCleartextTraffic="true"
-        tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
+        android:theme="@style/Theme.DaringSchool">
+        <activity android:name=".Activity.UiTeacher.Activity.CreateEbookActivity"></activity>
+        <activity android:name=".Activity.UiTeacher.Activity.EbookActivity" />
         <activity android:name=".Activity.UiParent.MainActivityParent" />
         <activity android:name=".Activity.UiTeacher.MainActivityTeacher" />
         <activity android:name=".Activity.UiStudent.Activity.EditProfileActivity" />
