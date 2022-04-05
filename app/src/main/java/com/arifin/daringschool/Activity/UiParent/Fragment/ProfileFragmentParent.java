@@ -86,7 +86,7 @@ public class ProfileFragmentParent extends Fragment {
             }
         });
 
-        studentAccount = FirebaseDatabase.getInstance().getReference("login/Rahman").child("Profile");
+        studentAccount = FirebaseDatabase.getInstance().getReference("login/Ahmad Satria Wijaya").child("Profile");
 
         studentAccount.addValueEventListener(new ValueEventListener() {
             @Override

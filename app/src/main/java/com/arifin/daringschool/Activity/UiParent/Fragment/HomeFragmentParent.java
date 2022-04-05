@@ -26,6 +26,7 @@ import com.squareup.picasso.Picasso;
 import org.jetbrains.annotations.NotNull;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HomeFragmentParent extends Fragment {
@@ -34,12 +35,12 @@ public class HomeFragmentParent extends Fragment {
     CircleImageView imgProfile;
     @BindView(R.id.tv_code_profile)
     TextView tvNameDashboard;
-    @BindView(R.id.img_attendance_history)
-    CardView imgAttendanceHistory;
-    @BindView(R.id.cv_duty)
-    CardView cvDuty;
-    @BindView(R.id.cv_eBook)
-    CardView cvEbok;
+//    @BindView(R.id.img_attendance_history)
+//    CardView imgAttendanceHistory;
+//    @BindView(R.id.cv_duty)
+//    CardView cvDuty;
+//    @BindView(R.id.cv_eBook)
+//    CardView cvEbok;
 
     DatabaseReference ParentRef;
     DatabaseReference teacherRefDashboard;
@@ -60,9 +61,10 @@ public class HomeFragmentParent extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home_parent, container, false);
+        ButterKnife.bind(this,view);
 
-        ParentRef = FirebaseDatabase.getInstance().getReference().child("login/Ahmad Satria Wijaya/Absen");
-        teacherRefDashboard = FirebaseDatabase.getInstance().getReference("login/Rahman").child("Profesi");
+        ParentRef = FirebaseDatabase.getInstance().getReference().child("login/Fahmi Wijaya/Absen");
+        teacherRefDashboard = FirebaseDatabase.getInstance().getReference("login/Ahmad Satria Wijaya").child("Profile");
 
         teacherRefDashboard.addValueEventListener(new ValueEventListener() {
             @Override
@@ -70,6 +72,7 @@ public class HomeFragmentParent extends Fragment {
                 for (DataSnapshot ds: snapshot.getChildren()){
                     Picasso.get().load(ds.child("imgProfile").getValue().toString()).into(imgProfile);
                     tvNameDashboard.setText(ds.child("nameProfile").getValue().toString());
+
                 }
             }
 
@@ -79,29 +82,29 @@ public class HomeFragmentParent extends Fragment {
             }
         });
 
-        cvDuty.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeFragmentParent.this.getActivity(), AssigmentActivity.class);
-                startActivity(i);
-            }
-        });
-
-        cvEbok.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeFragmentParent.this.getActivity(), EbookActivity.class);
-                startActivity(i);
-            }
-        });
-
-        imgAttendanceHistory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeFragmentParent.this.getActivity(), HistoryAbsenActivity.class);
-                startActivity(i);
-            }
-        });
+//        cvDuty.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(HomeFragmentParent.this.getActivity(), AssigmentActivity.class);
+//                startActivity(i);
+//            }
+//        });
+//
+//        cvEbok.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(HomeFragmentParent.this.getActivity(), EbookActivity.class);
+//                startActivity(i);
+//            }
+//        });
+//
+//        imgAttendanceHistory.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(HomeFragmentParent.this.getActivity(), HistoryAbsenActivity.class);
+//                startActivity(i);
+//            }
+//        });
 
         return view;
     }
