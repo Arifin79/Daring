@@ -26,6 +26,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.arifin.daringschool.Activity.UiStudent.Activity.EBookActivityStudent;
 import com.arifin.daringschool.Activity.UiTeacher.Activity.ExaminationActivity;
 import com.arifin.daringschool.Activity.UiStudent.Activity.GradeActivity;
 import com.arifin.daringschool.Activity.UiStudent.Activity.HistoryAbsenActivity;
@@ -76,8 +77,8 @@ public class HomeFragment extends Fragment {
     CardView imgFingerprint;
     @BindView(R.id.img_attendance_history)
     CardView imgAttendanceHistory;
-//    @BindView(R.id.cv_duty)
-//    CardView cvDuty;
+    @BindView(R.id.cv_eBook)
+    CardView cvEBook;
     @BindView(R.id.cv_schedule)
     CardView cvSchedule;
     @BindView(R.id.cv_examination)
@@ -186,13 +187,13 @@ public class HomeFragment extends Fragment {
             }
         });
 
-//        cvDuty.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(HomeFragment.this.getActivity(), AssigmentActivity.class);
-//                startActivity(i);
-//            }
-//        });
+        cvEBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeFragment.this.getActivity(), EBookActivityStudent.class);
+                startActivity(i);
+            }
+        });
 
         cvSchedule.setOnClickListener(new View.OnClickListener() {
             @Override

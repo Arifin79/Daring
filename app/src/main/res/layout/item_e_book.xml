@@ -9,16 +9,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="15dp"
         android:orientation="horizontal">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="110dp"
-            android:layout_height="160dp"
+            android:layout_width="120dp"
+            android:layout_height="185dp"
             app:cardCornerRadius="5dp">
 
             <ImageView
                 android:id="@+id/img_Ebook"
+                android:scaleType="centerCrop"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
@@ -39,138 +40,135 @@
                 android:layout_marginLeft="10dp"
                 android:textSize="20dp"/>
 
-            <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <TableLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Penulis"
-                    android:textColor="@color/md_grey_700"
-                    android:textSize="13sp"/>
+                    android:padding="10dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=":" />
+                    <TableRow
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
 
-                <TextView
-                    android:id="@+id/tv_penulis"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="5dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Penulis"
+                            android:layout_weight="0.05"
+                            android:textColor="@color/md_grey_700"
+                            android:textSize="13sp"/>
 
-            </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=":" />
 
-            <LinearLayout
-                android:layout_marginTop="7dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/tv_penulis"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="5dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Penelaah"
-                    android:textColor="@color/md_grey_700"
-                    android:textSize="13sp"/>
+                    </TableRow>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=":" />
+                    <TableRow
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="5dp">
 
-                <TextView
-                    android:id="@+id/tv_penelaah"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="5dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Penelaah"
+                            android:layout_weight="0.05"
+                            android:textColor="@color/md_grey_700"
+                            android:textSize="13sp"/>
 
-            </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=":" />
 
-            <LinearLayout
-                android:layout_marginTop="7dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/tv_penelaah"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="5dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Pe-review"
-                    android:textColor="@color/md_grey_700"
-                    android:textSize="13sp"/>
+                    </TableRow>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=":" />
+                    <TableRow
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="5dp">
 
-                <TextView
-                    android:id="@+id/tv_preview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="5dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pe-review"
+                            android:layout_weight="0.05"
+                            android:textColor="@color/md_grey_700"
+                            android:textSize="13sp"/>
 
-            </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=":" />
 
-            <LinearLayout
-                android:layout_marginTop="7dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/tv_preview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="5dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Penerbitan"
-                    android:textColor="@color/md_grey_700"
-                    android:textSize="13sp"/>
+                    </TableRow>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=":" />
+                    <TableRow
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_marginTop="5dp">
 
-                <TextView
-                    android:id="@+id/tv_penerbit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="5dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Penerbitan"
+                            android:layout_weight="0.05"
+                            android:textColor="@color/md_grey_700"
+                            android:textSize="13sp"/>
 
-            </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=":" />
+
+                        <TextView
+                            android:id="@+id/tv_penerbit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="5dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"/>
+
+                    </TableRow>
+
+                </TableLayout>
 
             <Button
                 android:layout_width="100dp"
                 android:layout_height="45dp"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/shape_background_primary_color"
                 android:textAllCaps="false"
                 android:layout_gravity="right"
