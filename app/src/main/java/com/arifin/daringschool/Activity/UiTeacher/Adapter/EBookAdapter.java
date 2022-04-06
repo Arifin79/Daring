@@ -51,7 +51,6 @@ public class EBookAdapter extends RecyclerView.Adapter<EBookAdapter.EBookViewHol
         holder.textPenerbit.setText(uploadCurrent.getmPenerbit());
         Picasso.get()
                 .load(uploadCurrent.getImageUrl())
-                .placeholder(R.mipmap.ic_launcher)
                 .fit()
                 .centerCrop()
                 .into(holder.imageView);

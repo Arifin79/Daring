@@ -187,12 +187,9 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        cvEBook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeFragment.this.getActivity(), EBookActivityStudent.class);
-                startActivity(i);
-            }
+        cvEBook.setOnClickListener(v -> {
+            Intent i = new Intent(HomeFragment.this.getActivity(), EBookActivityStudent.class);
+            startActivity(i);
         });
 
         cvSchedule.setOnClickListener(new View.OnClickListener() {

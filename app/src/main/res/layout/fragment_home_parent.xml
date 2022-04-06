@@ -210,7 +210,7 @@
                         android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/cv_duty"
+                            android:id="@+id/cv_eBook"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_gravity="center"
@@ -243,7 +243,7 @@
                         android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/cv_eBook"
+                            android:id="@+id/cv_schedule"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_gravity="center"
@@ -275,7 +275,7 @@
                         android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/cv_schedule"
+                            android:id="@+id/cv_examination"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_gravity="center"
