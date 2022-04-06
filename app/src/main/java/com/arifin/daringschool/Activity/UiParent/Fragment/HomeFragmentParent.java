@@ -35,12 +35,12 @@ public class HomeFragmentParent extends Fragment {
     CircleImageView imgProfile;
     @BindView(R.id.tv_code_profile)
     TextView tvNameDashboard;
-//    @BindView(R.id.img_attendance_history)
-//    CardView imgAttendanceHistory;
-//    @BindView(R.id.cv_duty)
-//    CardView cvDuty;
-//    @BindView(R.id.cv_eBook)
-//    CardView cvEbok;
+    @BindView(R.id.img_attendance_history)
+    CardView imgAttendanceHistory;
+    @BindView(R.id.cv_duty)
+    CardView cvDuty;
+    @BindView(R.id.cv_eBook)
+    CardView cvEbok;
 
     DatabaseReference ParentRef;
     DatabaseReference teacherRefDashboard;
@@ -82,29 +82,29 @@ public class HomeFragmentParent extends Fragment {
             }
         });
 
-//        cvDuty.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(HomeFragmentParent.this.getActivity(), AssigmentActivity.class);
-//                startActivity(i);
-//            }
-//        });
-//
-//        cvEbok.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(HomeFragmentParent.this.getActivity(), EbookActivity.class);
-//                startActivity(i);
-//            }
-//        });
-//
-//        imgAttendanceHistory.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(HomeFragmentParent.this.getActivity(), HistoryAbsenActivity.class);
-//                startActivity(i);
-//            }
-//        });
+        cvDuty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeFragmentParent.this.getActivity(), AssigmentActivity.class);
+                startActivity(i);
+            }
+        });
+
+        cvEbok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeFragmentParent.this.getActivity(), EbookActivity.class);
+                startActivity(i);
+            }
+        });
+
+        imgAttendanceHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeFragmentParent.this.getActivity(), HistoryAbsenActivity.class);
+                startActivity(i);
+            }
+        });
 
         return view;
     }

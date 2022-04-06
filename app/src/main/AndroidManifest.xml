@@ -19,7 +19,8 @@
         android:roundIcon="@drawable/daring"
         android:supportsRtl="true"
         android:theme="@style/Theme.DaringSchool">
-        <activity android:name=".Activity.UiStudent.Activity.EBookActivityStudent"></activity>
+        <activity android:name=".Activity.UiParent.Activity.EBookActivityParent"></activity>
+        <activity android:name=".Activity.UiStudent.Activity.EBookActivityStudent" />
         <activity android:name=".Activity.UiTeacher.Activity.CreateEbookActivity" />
         <activity android:name=".Activity.UiTeacher.Activity.EbookActivity" />
         <activity android:name=".Activity.UiParent.MainActivityParent" />
