@@ -6,18 +6,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ButtonBarLayout;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.arifin.daringschool.Activity.UiTeacher.Model.putPDF;
+import com.arifin.daringschool.Activity.UiStudent.Fragment.HomeFragment;
+import com.arifin.daringschool.Activity.UiTeacher.Model.Assignment;
 import com.arifin.daringschool.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -29,6 +33,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,10 +53,21 @@ public class CreateAssignmentActivity extends AppCompatActivity {
     Button btnSubmit;
     @BindView(R.id.btn_clear_upload)
     ImageButton imgButtonCancel;
+    @BindView(R.id.et_assignment_name)
+    EditText edtAssignmentName;
+    @BindView(R.id.et_assignment_lecture_description)
+    EditText edtDescription;
+    @BindView(R.id.et_assignment_Score)
+    EditText edtScore;
+    @BindView(R.id.btn_add_assignment_date)
+    Button btnDate;
     Uri pdfFile;
+    
 
     StorageReference storageReference;
     DatabaseReference databaseReference;
+    DatePickerDialog datePickerDialog;
+    int mYear, mMonth, mDay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +81,7 @@ public class CreateAssignmentActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Create Assignment");
 
         storageReference = FirebaseStorage.getInstance().getReference();
-        databaseReference = FirebaseDatabase.getInstance().getReference("login/Rahman").child("uploadPDF");
+        databaseReference = FirebaseDatabase.getInstance().getReference("login/Rahman").child("Assignment");
 
         btnSubmit.setEnabled(false);
         btnUploadPdf.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +91,22 @@ public class CreateAssignmentActivity extends AppCompatActivity {
             }
         });
 
+        btnDate.setOnTouchListener((view, motionEvent) -> {
+            if(motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                final Calendar c = Calendar.getInstance();
+                mYear = c.get(Calendar.YEAR);
+                mMonth = c.get(Calendar.MONTH);
+                mDay = c.get(Calendar.DAY_OF_MONTH);
+                datePickerDialog = new DatePickerDialog(CreateAssignmentActivity.this,
+                        (view1, year, monthOfYear, dayOfMonth) -> {
+                            btnDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                            datePickerDialog.dismiss();
+                        }, mYear, mMonth, mDay);
+                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
+                datePickerDialog.show();
+            }
+            return true;
+        });
 
         imgButtonCancel.setVisibility(View.GONE);
 
@@ -110,7 +143,7 @@ public class CreateAssignmentActivity extends AppCompatActivity {
         progressDialog.setTitle("File is loading...");
         progressDialog.show();
 
-        StorageReference reference = storageReference.child("login/Rahman/uploadPDF" + System.currentTimeMillis() + ".pdf");
+        StorageReference reference = storageReference.child("login/Rahman/Assignment" + System.currentTimeMillis() + ".pdf");
 
         reference.putFile(data).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -120,7 +153,7 @@ public class CreateAssignmentActivity extends AppCompatActivity {
                 while (!uriTask.isComplete());
                 Uri uri = uriTask.getResult();
 
-                putPDF putPDF = new putPDF(tvPDF.getText().toString(), uri.toString());
+                Assignment putPDF = new Assignment(tvPDF.getText().toString().trim(), uri.toString(),edtScore.getText().toString().trim(), uri.toString(), btnDate.getText().toString().trim(), edtDescription.getText().toString().trim(), edtAssignmentName.getText().toString().trim());
                 databaseReference.child(databaseReference.push().getKey()).setValue(putPDF);
                 Toast.makeText(CreateAssignmentActivity.this, "File Upload", Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
@@ -129,9 +162,8 @@ public class CreateAssignmentActivity extends AppCompatActivity {
         }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onProgress(@NonNull @NotNull UploadTask.TaskSnapshot snapshot) {
-
                 double progress = (100.0* snapshot.getBytesTransferred())/snapshot.getTotalByteCount();
-                progressDialog.setMessage("File Uploaded.." + (int) progress + "%");
+                progressDialog.setMessage("File Uploaded... " + (int) progress + "%");
             }
         });
     }

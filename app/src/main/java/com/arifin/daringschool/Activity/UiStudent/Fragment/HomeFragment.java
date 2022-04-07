@@ -32,6 +32,7 @@ import com.arifin.daringschool.Activity.UiStudent.Activity.GradeActivity;
 import com.arifin.daringschool.Activity.UiStudent.Activity.HistoryAbsenActivity;
 import com.arifin.daringschool.Activity.UiStudent.Activity.ScheduleActivity;
 import com.arifin.daringschool.Activity.UiStudent.Adapter.ViewScheduleAdpater;
+import com.arifin.daringschool.Activity.UiTeacher.Activity.ScheduleTeacherActivity;
 import com.arifin.daringschool.Model.Course;
 import com.arifin.daringschool.R;
 import com.fasterxml.jackson.core.util.MinimalPrettyPrinter;
@@ -195,7 +196,7 @@ public class HomeFragment extends Fragment {
         cvSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomeFragment.this.getActivity(), ScheduleActivity.class);
+                Intent i = new Intent(HomeFragment.this.getActivity(), ScheduleTeacherActivity.class);
                 startActivity(i);
             }
         });
@@ -233,8 +234,8 @@ public class HomeFragment extends Fragment {
                 dialog.setCancelable(false);
                 dialog.setContentView(R.layout.dialog_absen_student);
                 dialog.setCanceledOnTouchOutside(true);
-                EditText etClockIn =  dialog.findViewById(R.id.clockIn);
-                EditText etDateIn =  dialog.findViewById(R.id.dateIn);
+                Button etClockIn =  dialog.findViewById(R.id.clockIn);
+                Button etDateIn =  dialog.findViewById(R.id.dateIn);
                 Spinner spKeterangan =  dialog.findViewById(R.id.spKeterangan);
                 Spinner spKelas =  dialog.findViewById(R.id.spKelas);
                 Button btnCancel =  dialog.findViewById(R.id.btnCancel);

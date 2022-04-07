@@ -38,6 +38,7 @@ public class TaskAdapterTeacher extends RecyclerView.Adapter<TaskAdapterTeacher.
     private TodoFragmentTeacher fragment;
     private LayoutInflater inflater;
     private List<Task> taskList;
+    Context mContext;
     public SimpleDateFormat dateFormat = new SimpleDateFormat("EE dd MMM yyyy", Locale.US);
     public SimpleDateFormat inputDateFormat = new SimpleDateFormat("dd-M-yyyy", Locale.US);
     Date date = null;
@@ -48,15 +49,14 @@ public class TaskAdapterTeacher extends RecyclerView.Adapter<TaskAdapterTeacher.
         this.fragment = context;
         this.taskList = taskList;
         this.setRefreshListener = setRefreshListener;
-        this.inflater = (LayoutInflater) context.getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//        this.inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @NonNull
     @NotNull
     @Override
     public TaskAdapterTeacher.TaskViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.item_task, parent, false);
-//        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_task, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_task, parent,false);
         return new TaskAdapterTeacher.TaskViewHolder(view);
     }
 

@@ -36,14 +36,15 @@
                 android:layout_width="match_parent"
                 android:id="@+id/tv_AssignmentType"
                 android:layout_height="match_parent"
-                android:text="Assignment Type"
+                android:text="Tipe Tugas"
                 android:textSize="10sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/HAssignmentName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Assignment Name">
+                android:layout_marginTop="5dp"
+                android:hint="Nama Tugas">
                 <EditText
                     android:id="@+id/et_assignment_name"
                     android:layout_width="match_parent"
@@ -68,20 +69,36 @@
                     android:drawablePadding="8dp"
                     android:drawableLeft="@drawable/ic_event"
                     android:gravity="center_vertical"
-                    android:text="Assignment Date" />
+                    android:text="Waktu Tugas" />
 
             </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Deskripsi"
+                android:textSize="10sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/Hintdescription"
-                android:hint="Description">
+                android:hint="Deskripsi Materi"
+                android:layout_marginTop="5dp"
+                android:id="@+id/Hintdescription">
                 <EditText
                     android:id="@+id/et_assignment_lecture_description"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
             </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+
 
             <androidx.appcompat.widget.ButtonBarLayout
                 android:id="@+id/btn_assignment_lecture_file"
@@ -105,7 +122,7 @@
                         android:id="@+id/tv_assignment_lecture_upload"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Upload File"
+                        android:text="Kirim File"
                         android:textSize="12dp" />
 
                     <TextView
@@ -135,42 +152,144 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:layout_marginStart="16dp"
-                        android:src="@drawable/ic_cloud_upload"
                         android:gravity="center_vertical"
-                        android:layout_centerVertical="true"/>
+                        android:src="@drawable/ic_cloud_upload" />
 
                     <TextView
                         android:id="@+id/tv_file_name_upload"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_toStartOf="@+id/btn_clear_upload"
-                        android:layout_marginStart="52dp"
                         android:layout_centerVertical="true"
-                        android:singleLine="true"
-                        android:ellipsize="end"
                         android:layout_gravity="center_vertical"
-                        android:textColor="@color/md_blue_300"
-                        android:text="file.xls"/>
+                        android:layout_marginStart="52dp"
+                        android:layout_toStartOf="@+id/btn_clear_upload"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="-"
+                        android:textColor="@color/md_blue_300" />
 
                     <ImageButton
                         android:id="@+id/btn_clear_upload"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
-                        android:src="@drawable/ic_clear_back_24"
-                        style="@style/Base.Widget.AppCompat.Button.Borderless"
                         android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"/>
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_clear_back_24" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
+
+<!--            <androidx.appcompat.widget.ButtonBarLayout-->
+<!--                android:id="@+id/btn_assignment_lecture_file_student"-->
+<!--                android:layout_width="match_parent"-->
+<!--                style="@style/Base.Widget.AppCompat.Button.Borderless"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_weight="1">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="36dp"-->
+<!--                    android:layout_height="36dp"-->
+<!--                    android:src="@drawable/ic_cloud_upload" />-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="16dp"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tv_assignment_lecture_upload_student"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:text="Upload File"-->
+<!--                        android:textSize="12dp" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:textSize="8dp"-->
+<!--                        android:id="@+id/tv_allowed_document_student"-->
+<!--                        android:text="*Allowed document file"/>-->
+
+<!--                </LinearLayout>-->
+<!--            </androidx.appcompat.widget.ButtonBarLayout>-->
+
+
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:layout_marginTop="25dp"-->
+<!--                android:layout_margin="0.5dp"-->
+<!--                android:clickable="true"-->
+<!--                android:background="?android:attr/selectableItemBackground"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="72dp"-->
+<!--                android:focusable="true">-->
+
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:orientation="horizontal">-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="16dp"-->
+<!--                        android:src="@drawable/ic_cloud_upload"-->
+<!--                        android:gravity="center_vertical"-->
+<!--                        android:layout_centerVertical="true"/>-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tv_file_name_upload_student"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_toStartOf="@+id/btn_clear_upload_student"-->
+<!--                        android:layout_marginStart="52dp"-->
+<!--                        android:layout_centerVertical="true"-->
+<!--                        android:singleLine="true"-->
+<!--                        android:ellipsize="end"-->
+<!--                        android:layout_gravity="center_vertical"-->
+<!--                        android:textColor="@color/md_blue_300"-->
+<!--                        android:text="file.xls"/>-->
+
+<!--                    <ImageButton-->
+<!--                        android:id="@+id/btn_clear_upload_student"-->
+<!--                        android:layout_width="48dp"-->
+<!--                        android:layout_height="48dp"-->
+<!--                        android:src="@drawable/ic_clear_back_24"-->
+<!--                        style="@style/Base.Widget.AppCompat.Button.Borderless"-->
+<!--                        android:layout_alignParentEnd="true"-->
+<!--                        android:layout_centerVertical="true"/>-->
+<!--                </RelativeLayout>-->
+<!--            </androidx.cardview.widget.CardView>-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:id="@+id/tv_score"
+                android:layout_height="match_parent"
+                android:text="Nilai"
+                android:layout_marginTop="15dp"
+                android:textSize="10sp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/HAssignmentScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nilai Siswa"
+                android:layout_marginTop="5dp">
+                <EditText
+                    android:id="@+id/et_assignment_Score"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btn_submit_assignment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Submit"
+                android:text="Kirim"
                 android:textAllCaps="false"
                 android:textColor="@color/md_white_1000"
                 android:background="@drawable/shape_backround_textbox_profile" />

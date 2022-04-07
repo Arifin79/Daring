@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -22,6 +23,10 @@ import com.arifin.daringschool.Activity.UiStudent.Activity.HistoryAbsenActivity;
 import com.arifin.daringschool.Activity.UiStudent.Activity.ScheduleActivity;
 import com.arifin.daringschool.Activity.UiStudent.Adapter.ViewScheduleAdpater;
 import com.arifin.daringschool.Activity.UiTeacher.Activity.ExaminationActivity;
+import com.arifin.daringschool.Activity.UiTeacher.Activity.ScheduleTeacherActivity;
+import com.arifin.daringschool.Activity.UiTeacher.Activity.ScoreTeacherActivity;
+import com.arifin.daringschool.Activity.UiTeacher.Adapter.ScheduleHomeTeacherAdapter;
+import com.arifin.daringschool.Activity.UiTeacher.Model.Assignment;
 import com.arifin.daringschool.Model.Course;
 import com.arifin.daringschool.R;
 import com.fasterxml.jackson.core.util.MinimalPrettyPrinter;
@@ -39,6 +44,7 @@ import org.jetbrains.annotations.NotNull;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import butterknife.BindView;
@@ -47,35 +53,44 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HomeFragmentParent extends Fragment {
 
-   @BindView(R.id.compactcalendar_view) CompactCalendarView mCompactCalendarView;
-   @BindView(R.id.txt_month) TextView tvMonth;
-   @BindView(R.id.txt_year) TextView tvYear;
-   @BindView(R.id.tv_date_now) TextView tvDateNow;
-   @BindView(R.id.img_arrow_left) ImageView imgArrowLeft;
-   @BindView(R.id.img_arrow_right) ImageView imgArrowRight;
-   @BindView(R.id.img_attendance_history) CardView imgAttendanceHistory;
-   @BindView(R.id.cv_eBook) CardView cvEBook;
-   @BindView(R.id.cv_schedule) CardView cvSchedule;
-   @BindView(R.id.cv_grade) CardView cvGrade;
-   @BindView(R.id.cv_examination) CardView cvExam;
-   @BindView(R.id.img_profile_dashboard) CircleImageView imgProfile;
-   @BindView(R.id.rv_schedule) RecyclerView rvSchedule;
+   @BindView(R.id.compactcalendar_view)
+   CompactCalendarView mCompactCalendarView;
+   @BindView(R.id.txt_month)
+   TextView tvMonth;
+   @BindView(R.id.txt_year)
+   TextView tvYear;
+   @BindView(R.id.tv_date_now)
+   TextView tvDateNow;
+   @BindView(R.id.img_arrow_left)
+   ImageView imgArrowLeft;
+   @BindView(R.id.img_arrow_right)
+   ImageView imgArrowRight;
+   @BindView(R.id.img_attendance_history)
+   CardView imgAttendanceHistory;
+   @BindView(R.id.cv_eBook)
+   CardView cvEBook;
+   @BindView(R.id.cv_schedule)
+   CardView cvSchedule;
+   @BindView(R.id.cv_grade)
+   CardView cvGrade;
+   @BindView(R.id.cv_examination)
+   CardView cvExam;
+   @BindView(R.id.img_profile_dashboard)
+   CircleImageView imgProfile;
+   @BindView(R.id.rv_schedule)
+   RecyclerView rvSchedule;
 
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMMM", Locale.getDefault());
     SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("yyyy", Locale.getDefault());
     SimpleDateFormat dateFormatDay = new SimpleDateFormat("dd", Locale.getDefault());
     SimpleDateFormat dateFormatForMonth = new SimpleDateFormat("MMMM", Locale.getDefault());
-    TimePickerDialog timePickerDialog;
-    DatePickerDialog datePickerDialog;
-    int mYear, mMonth, mDay;
-    int mHour, mMinute;
-    ViewScheduleAdpater viewScheduleAdpater;
-    LinearLayoutManager layoutManagerAssigment;
-    ArrayList<Course> courseList;
-    TextView urlProfile;
 
     DatabaseReference studentRef;
     DatabaseReference studentRefDashboard;
+    private DatabaseReference mDatabaseRef;
+    private ScheduleHomeTeacherAdapter assigmentAdapter;
+    private List<Assignment> assignmentList;
+
     private FirebaseAuth mAuth;
 
     public HomeFragmentParent() {
@@ -120,12 +135,38 @@ public class HomeFragmentParent extends Fragment {
             }
 
         });
-        listSchedule();
 
-        viewScheduleAdpater = new ViewScheduleAdpater(courseList, getContext());
-        layoutManagerAssigment = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-        rvSchedule.setLayoutManager(layoutManagerAssigment);
-        rvSchedule.setAdapter(viewScheduleAdpater);
+        assignmentList = new ArrayList<>();
+
+        rvSchedule.setHasFixedSize(true);
+        rvSchedule.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        assigmentAdapter = new ScheduleHomeTeacherAdapter( getActivity(), assignmentList);
+        rvSchedule.setAdapter(assigmentAdapter);
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("login/Rahman").child("Assignment");
+        mDatabaseRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                assignmentList.clear();
+
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Assignment upload = postSnapshot.getValue(Assignment.class);
+                    upload.setKey(postSnapshot.getKey());
+                    assignmentList.add(upload);
+                }
+
+                assigmentAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(getActivity(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         imgArrowRight.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,21 +196,11 @@ public class HomeFragmentParent extends Fragment {
         });
 
         cvEBook.setOnClickListener(v -> startActivity(new Intent(getActivity(), EBookActivityStudent.class)));
-        cvSchedule.setOnClickListener(v -> startActivity(new Intent(getActivity(), ScheduleActivity.class)));
+        cvSchedule.setOnClickListener(v -> startActivity(new Intent(getActivity(), ScheduleTeacherActivity.class)));
         cvExam.setOnClickListener(v -> startActivity(new Intent(getActivity(), ExaminationActivity.class)));
-        cvGrade.setOnClickListener(v -> startActivity(new Intent(getActivity(), GradeActivity.class)));
+        cvGrade.setOnClickListener(v -> startActivity(new Intent(getActivity(), ScoreTeacherActivity.class)));
         imgAttendanceHistory.setOnClickListener(v -> startActivity(new Intent(getActivity(), HistoryAbsenActivity.class)));
 
         return view;
-    }
-
-    private void listSchedule() {
-        courseList = new ArrayList<>();
-        for (int i = 0; i<3 ; i++) {
-            Course course = new Course();
-            course.setAssignmentName("Indonesia");
-            courseList.add(course);
-        }
-
     }
 }

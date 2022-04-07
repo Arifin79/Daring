@@ -47,20 +47,19 @@ public class TaskAdapterStudent extends RecyclerView.Adapter<TaskAdapterStudent.
         this.fragment = context;
         this.taskList = taskList;
         this.setRefreshListener = setRefreshListener;
-        this.inflater = (LayoutInflater) context.getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//        this.inflater = (LayoutInflater) context.getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @NonNull
     @NotNull
     @Override
-    public TaskViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.item_task, parent, false);
-//        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_task, parent,false);
-        return new TaskViewHolder(view);
+    public TaskAdapterStudent.TaskViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_task, parent,false);
+        return new TaskAdapterStudent.TaskViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull TaskViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull TaskAdapterStudent.TaskViewHolder holder, int position) {
         Task task = taskList.get(position);
         holder.title.setText(task.getTaskTitle());
         holder.description.setText(task.getTaskDescrption());

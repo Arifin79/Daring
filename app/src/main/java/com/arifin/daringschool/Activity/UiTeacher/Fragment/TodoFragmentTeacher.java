@@ -65,7 +65,7 @@ public class TodoFragmentTeacher extends Fragment implements CreateTaskBottomShe
         ComponentName receiver = new ComponentName(getActivity(), AlarmBroadcastReceiver.class);
         PackageManager pm = getActivity().getPackageManager();
         pm.setComponentEnabledSetting(receiver, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
-        Glide.with(getActivity().getApplicationContext()).load(R.drawable.todo).into(noDataImage);
+        Glide.with(getActivity().getApplicationContext()).load(R.drawable.bgnotodo).into(noDataImage);
 
         addTask.setOnClickListener(view -> {
             CreateTaskBottomSheetFragmentTeacher createTaskBottomSheetFragmentTeacher = new CreateTaskBottomSheetFragmentTeacher();
@@ -84,7 +84,7 @@ public class TodoFragmentTeacher extends Fragment implements CreateTaskBottomShe
     }
     public void setUpAdapter() {
         taskAdapterTeacher = new TaskAdapterTeacher(this, tasks, this);
-        taskRecycler.setLayoutManager(new LinearLayoutManager( getActivity().getApplicationContext()));
+        taskRecycler.setLayoutManager(new LinearLayoutManager( this.getActivity()));
         taskRecycler.setAdapter(taskAdapterTeacher);
         taskAdapterTeacher.notifyDataSetChanged();
     }

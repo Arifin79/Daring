@@ -1,6 +1,7 @@
 package com.arifin.daringschool.Activity.UiStudent.Fragment;
 
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -44,6 +45,7 @@ public class TodoFragment extends Fragment implements CreateTaskBottomSheetFragm
     @BindView(R.id.calendar)
     ImageView calendar;
     private TodoFragment fragment;
+    Context context;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,7 +63,7 @@ public class TodoFragment extends Fragment implements CreateTaskBottomSheetFragm
         ComponentName receiver = new ComponentName(this.getActivity(), AlarmBroadcastReceiver.class);
         PackageManager pm = this.getActivity().getPackageManager();
         pm.setComponentEnabledSetting(receiver, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
-        Glide.with(getActivity().getApplicationContext()).load(R.drawable.todo).into(noDataImage);
+        Glide.with(getActivity().getApplicationContext()).load(R.drawable.bgnotodo).into(noDataImage);
 
         addTask.setOnClickListener(view -> {
             CreateTaskBottomSheetFragmentStudent createTaskBottomSheetFragmentStudent = new CreateTaskBottomSheetFragmentStudent();
@@ -80,13 +82,14 @@ public class TodoFragment extends Fragment implements CreateTaskBottomSheetFragm
         return view1;
     }
     public void setUpAdapter() {
-        taskAdapter = new TaskAdapterStudent(this, tasks, this);
-        taskRecycler.setLayoutManager(new LinearLayoutManager( getActivity().getApplicationContext()));
+        taskAdapter = new TaskAdapterStudent(this, tasks, TodoFragment.this);
+        taskRecycler.setLayoutManager(new LinearLayoutManager( this.getActivity()));
         taskRecycler.setAdapter(taskAdapter);
         taskAdapter.notifyDataSetChanged();
     }
 
     private void getSavedTasks() {
+
 
         class GetSavedTasks extends AsyncTask<Void, Void, List<Task>> {
             @Override

@@ -1,6 +1,8 @@
 package com.arifin.daringschool.Activity.UiTeacher.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -8,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -54,6 +57,15 @@ public class EBookAdapter extends RecyclerView.Adapter<EBookAdapter.EBookViewHol
                 .fit()
                 .centerCrop()
                 .into(holder.imageView);
+        holder.btnDownload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setType("application/pdf");
+                intent.setData(Uri.parse(uploadCurrent.getmPdf()));
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -65,6 +77,7 @@ public class EBookAdapter extends RecyclerView.Adapter<EBookAdapter.EBookViewHol
             View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
         public TextView textViewName, textPenulis, textPenelaah, textPreview, textPenerbit;
         public ImageView imageView;
+        public Button btnDownload;
 
         public EBookViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -75,6 +88,7 @@ public class EBookAdapter extends RecyclerView.Adapter<EBookAdapter.EBookViewHol
             textPenelaah = itemView.findViewById(R.id.tv_penelaah);
             textPreview = itemView.findViewById(R.id.tv_preview);
             textPenerbit = itemView.findViewById(R.id.tv_penerbit);
+            btnDownload = itemView.findViewById(R.id.btnDownload);
 
             itemView.setOnClickListener(this);
             itemView.setOnCreateContextMenuListener(this);

@@ -58,7 +58,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/people"/>
+                    android:src="@drawable/noavatar"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -67,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="25sp"
+                android:layout_marginTop="17sp"
                 android:orientation="vertical">
 
                 <TextView
@@ -76,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:textSize="18dp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:text="Fahmi Wijaya"/>
 
                 <TextView
@@ -101,8 +101,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingTop="50dp"
-                android:layout_marginTop="10dp"
+                android:paddingTop="60dp"
                 android:background="@drawable/shape_backround_textbox_profile">
 
                 <LinearLayout
@@ -176,8 +175,7 @@
                         android:layout_height="32dp"
                         android:layout_margin="5dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_baseline_power_settings_new_24"
-                        app:tint="@color/md_red_800">
+                        android:src="@drawable/ic_baseline_power_settings_new_24">
                     </ImageView>
 
                     <TextView

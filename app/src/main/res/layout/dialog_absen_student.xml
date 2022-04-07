@@ -74,40 +74,62 @@
             android:text="Jam"
             tools:ignore="MissingPrefix" />
 
-        <EditText
-            android:id="@+id/clockIn"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            fontPath="fonts/nunito_extra_bold.ttf"
-            android:layout_marginTop="5dp"
-            android:singleLine="true"
-            android:padding="10dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:background="@drawable/btn_border"
-            tools:ignore="MissingPrefix" />
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/shape_background_gray"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/clockIn"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:textSize="10dp"
+                android:layout_gravity="center_vertical"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_weight="1"
+                android:drawablePadding="8dp"
+                android:drawableLeft="@drawable/ic_event"
+                android:gravity="center_vertical"
+                android:textAllCaps="false"
+                android:text="Masuk Jam" />
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
             fontPath="fonts/nunito_extra_bold.ttf"
             android:text="Tanggal"
             tools:ignore="MissingPrefix" />
 
-        <EditText
-            android:id="@+id/dateIn"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            fontPath="fonts/nunito_extra_bold.ttf"
-            android:singleLine="true"
-            android:padding="10dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:background="@drawable/btn_border"
-            tools:ignore="MissingPrefix" />
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/shape_background_gray"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/dateIn"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:textSize="10dp"
+                android:layout_gravity="center_vertical"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_weight="1"
+                android:drawablePadding="8dp"
+                android:drawableLeft="@drawable/ic_event"
+                android:gravity="center_vertical"
+                android:textAllCaps="false"
+                android:text="Masuk Tanggal" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

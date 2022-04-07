@@ -18,7 +18,9 @@
         android:largeHeap="true"
         android:roundIcon="@drawable/daring"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/Theme.DaringSchool">
+        <activity android:name=".Activity.UiTeacher.Activity.ScheduleTeacherActivity"></activity>
+        <activity android:name=".Activity.UiTeacher.Activity.ScoreTeacherActivity" />
         <activity android:name=".Activity.UiParent.Activity.EBookActivityParent" />
         <activity android:name=".Activity.UiStudent.Activity.EBookActivityStudent" />
         <activity android:name=".Activity.UiTeacher.Activity.CreateEbookActivity" />
@@ -59,8 +61,7 @@
         <service
             android:name=".CalendarBottomSheetFragment.AlarmService"
             android:enabled="true"
-            android:exported="true"
-            tools:ignore="Instantiatable" />
+            android:exported="true" />
     </application>
 
 </manifest>

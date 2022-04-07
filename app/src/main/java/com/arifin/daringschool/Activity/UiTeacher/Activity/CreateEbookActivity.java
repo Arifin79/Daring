@@ -16,15 +16,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.arifin.daringschool.Activity.LoginActivity;
-import com.arifin.daringschool.Activity.RegisterActivity;
 import com.arifin.daringschool.Activity.UiTeacher.Model.EBook;
 import com.arifin.daringschool.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -47,6 +45,10 @@ public class CreateEbookActivity extends AppCompatActivity {
     Button btnChooseImage;
     @BindView(R.id.button_upload)
     Button btnUpload;
+    @BindView(R.id.button_choose_pdf)
+    Button btnUploadPDF;
+    @BindView(R.id.tv_card_student_pdf)
+    TextView tvNamePDF;
     @BindView(R.id.image_view)
     ImageView imgBook;
     @BindView(R.id.edit_text_file_name)
@@ -83,6 +85,7 @@ public class CreateEbookActivity extends AppCompatActivity {
 
         mStorageRef = FirebaseStorage.getInstance().getReference();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("login/Rahman").child("ebook");
+        progressBar.setVisibility(View.GONE);
 
         btnChooseImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +105,24 @@ public class CreateEbookActivity extends AppCompatActivity {
             }
         });
 
+        btnUploadPDF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mUploadTask != null && mUploadTask.isInProgress()) {
+                    Toast.makeText(CreateEbookActivity.this, "Upload in progress", Toast.LENGTH_SHORT).show();
+                } else {
+                    openFileChooserPDF();
+                }
+            }
+        });
+
+    }
+
+    private void openFileChooserPDF(){
+        Intent intent = new Intent();
+        intent.setType("application/pdf");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "PDF FILE SELECT"), 12);
     }
 
     private void openFileChooser() {
@@ -114,7 +135,11 @@ public class CreateEbookActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 12 && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            tvNamePDF.setText(data.getDataString()
+                    .substring(data.getDataString().lastIndexOf("/") + 1));
 
+        }
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
                 && data != null && data.getData() != null) {
             mImageUri = data.getData();
@@ -148,7 +173,7 @@ public class CreateEbookActivity extends AppCompatActivity {
 
                             Toast.makeText(CreateEbookActivity.this, "Upload successful", Toast.LENGTH_LONG).show();
                             EBook upload = new EBook(edtFileName.getText().toString().trim(),
-                                    taskSnapshot.getMetadata().getReference().getDownloadUrl().toString(), edtPenulis.getText().toString().trim(), edtPenelaah.getText().toString().trim(), edtPreview.getText().toString().trim(), edtPenerbit.getText().toString().trim());
+                                    taskSnapshot.getMetadata().getReference().getDownloadUrl().toString(), edtPenulis.getText().toString().trim(), edtPenelaah.getText().toString().trim(), edtPreview.getText().toString().trim(), edtPenerbit.getText().toString().trim(), tvNamePDF.getText().toString().trim());
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(upload);
                         }
@@ -163,6 +188,7 @@ public class CreateEbookActivity extends AppCompatActivity {
                         @Override
                         public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                             double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                            progressBar.setVisibility(View.VISIBLE);
                             progressBar.setProgress((int) progress);
                         }
                     });

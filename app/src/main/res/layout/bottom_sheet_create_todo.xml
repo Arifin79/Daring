@@ -27,7 +27,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             fontPath="fonts/nunito_extra_bold.ttf"
-            android:text="Add a task"
+            android:text="Add a Reminder"
             android:textColor="@color/black"
             android:textSize="22sp"
             tools:ignore="MissingPrefix"/>
@@ -38,7 +38,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             fontPath="fonts/nunito_extra_bold.ttf"
-            android:text="Fill the details below to add a task into your TODO"
+            android:text="Fill the details below to add a Reminder into your TODO"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:alpha="0.8"
@@ -150,7 +150,7 @@
             android:id="@+id/addTask"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add task"
+            android:text="Add Reminder"
             android:background="@drawable/btn_background"
             android:textColor="@color/white"
             android:layout_marginTop="40dp"/>

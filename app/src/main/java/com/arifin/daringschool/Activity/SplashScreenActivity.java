@@ -25,10 +25,12 @@ public class SplashScreenActivity extends AppCompatActivity {
             public void run() {
                 Intent i = new Intent(SplashScreenActivity.this, IntroSliderActivity.class);
                 startActivity(i);
-                onStart();
                 finish();
             }
         }, 2000);
+
+        onStart();
+
     }
 
     @Override

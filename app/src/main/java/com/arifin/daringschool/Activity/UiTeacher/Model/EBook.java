@@ -2,7 +2,9 @@ package com.arifin.daringschool.Activity.UiTeacher.Model;
 
 import com.google.firebase.database.Exclude;
 
-public class EBook {
+import java.io.Serializable;
+
+public class EBook implements Serializable {
     private String mName;
     private String mImageUrl;
     private String mPenulis;
@@ -16,7 +18,7 @@ public class EBook {
         //empty constructor needed
     }
 
-    public EBook(String name, String imageUrl, String penulis, String penelaah, String preview, String penerbit) {
+    public EBook(String name, String imageUrl, String penulis, String penelaah, String preview, String penerbit, String pdf) {
         if (name.trim().equals("")) {
             name = "No Name";
         }
@@ -27,6 +29,7 @@ public class EBook {
         mPenelaah = penelaah;
         mPreview = preview;
         mPenerbit = penerbit;
+        mPdf = pdf;
     }
 
     public String getmPenulis() {
