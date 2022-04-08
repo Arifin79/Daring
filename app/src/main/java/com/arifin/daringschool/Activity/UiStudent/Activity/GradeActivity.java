@@ -3,11 +3,27 @@ package com.arifin.daringschool.Activity.UiStudent.Activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import com.arifin.daringschool.Activity.UiTeacher.Activity.ScoreTeacherActivity;
+import com.arifin.daringschool.Activity.UiTeacher.Adapter.ScoreTeacherAdapter;
+import com.arifin.daringschool.Activity.UiTeacher.Model.Assignment;
 import com.arifin.daringschool.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,6 +32,15 @@ public class GradeActivity extends AppCompatActivity {
 
     @BindView(R.id.action_bar_grade)
     Toolbar actionBar;
+    @BindView(R.id.rv_assigment)
+    RecyclerView rvAssigment;
+    @BindView(R.id.progress_circle)
+    ProgressBar mProgressCircle;
+
+
+    private ScoreTeacherAdapter assigmentAdapter;
+    private List<Assignment> assignmentList;
+    private DatabaseReference mDatabaseRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +53,40 @@ public class GradeActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_right1);
         getSupportActionBar().setTitle("Nilai");
 
+        assignmentList = new ArrayList<>();
+
+        rvAssigment.setHasFixedSize(true);
+        rvAssigment.setLayoutManager(new LinearLayoutManager(this));
+
+        assigmentAdapter = new ScoreTeacherAdapter( GradeActivity.this, assignmentList);
+        rvAssigment.setAdapter(assigmentAdapter);
+
+
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("login/Rahman").child("Assignment");
+        mDatabaseRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                assignmentList.clear();
+
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Assignment upload = postSnapshot.getValue(Assignment.class);
+                    upload.setKey(postSnapshot.getKey());
+                    assignmentList.add(upload);
+                }
+
+                assigmentAdapter.notifyDataSetChanged();
+
+                mProgressCircle.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(GradeActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                mProgressCircle.setVisibility(View.INVISIBLE);
+            }
+        });
 
     }
 

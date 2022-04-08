@@ -5,6 +5,8 @@ import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,13 +24,18 @@ import com.arifin.daringschool.Activity.UiStudent.Adapter.CreateTaskBottomSheetF
 import com.arifin.daringschool.Activity.UiTeacher.Adapter.CreateTaskBottomSheetFragmentTeacher;
 import com.arifin.daringschool.CalendarBottomSheetFragment.ShowCalenderViewBottomSheet;
 import com.arifin.daringschool.CalendarBottomSheetFragment.AlarmBroadcastReceiver;
+import com.arifin.daringschool.Database.AppDatabase;
 import com.arifin.daringschool.Database.DatabaseClient;
 import com.arifin.daringschool.Model.Task;
 import com.arifin.daringschool.R;
 import com.bumptech.glide.Glide;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,6 +54,9 @@ public class TodoFragmentTeacher extends Fragment implements CreateTaskBottomShe
     @BindView(R.id.calendar)
     ImageView calendar;
     private TodoFragment fragment;
+    private AppDatabase appDatabase;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,12 +65,18 @@ public class TodoFragmentTeacher extends Fragment implements CreateTaskBottomShe
     }
 
     @Override
+    public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setUpAdapter();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view1 = inflater.inflate(R.layout.fragment_todo_teacher, container, false);
         ButterKnife.bind(this, view1);
-        setUpAdapter();
+
         getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         ComponentName receiver = new ComponentName(getActivity(), AlarmBroadcastReceiver.class);
         PackageManager pm = getActivity().getPackageManager();
@@ -90,6 +106,15 @@ public class TodoFragmentTeacher extends Fragment implements CreateTaskBottomShe
     }
 
     private void getSavedTasks() {
+        ExecutorService executors = Executors.newSingleThreadExecutor();
+
+        executors.execute(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
+
 
         class GetSavedTasks extends AsyncTask<Void, Void, List<Task>> {
             @Override

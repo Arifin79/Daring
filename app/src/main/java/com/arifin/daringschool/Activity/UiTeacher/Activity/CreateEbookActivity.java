@@ -23,6 +23,7 @@ import com.arifin.daringschool.Activity.UiTeacher.Model.EBook;
 import com.arifin.daringschool.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -171,9 +172,13 @@ public class CreateEbookActivity extends AppCompatActivity {
                                 }
                             }, 500);
 
+                            Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                            while (!uriTask.isComplete());
+                            Uri uri = uriTask.getResult();
+
                             Toast.makeText(CreateEbookActivity.this, "Upload successful", Toast.LENGTH_LONG).show();
                             EBook upload = new EBook(edtFileName.getText().toString().trim(),
-                                    taskSnapshot.getMetadata().getReference().getDownloadUrl().toString(), edtPenulis.getText().toString().trim(), edtPenelaah.getText().toString().trim(), edtPreview.getText().toString().trim(), edtPenerbit.getText().toString().trim(), tvNamePDF.getText().toString().trim());
+                                    uri.toString(), edtPenulis.getText().toString().trim(), edtPenelaah.getText().toString().trim(), edtPreview.getText().toString().trim(), edtPenerbit.getText().toString().trim(), uri.toString());
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(upload);
                         }
