@@ -1,7 +1,5 @@
 package com.arifin.daringschool.Activity.UiParent.Fragment;
 
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,16 +16,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.arifin.daringschool.Activity.UiStudent.Activity.EBookActivityStudent;
-import com.arifin.daringschool.Activity.UiStudent.Activity.GradeActivity;
 import com.arifin.daringschool.Activity.UiStudent.Activity.HistoryAbsenActivity;
-import com.arifin.daringschool.Activity.UiStudent.Activity.ScheduleActivity;
-import com.arifin.daringschool.Activity.UiStudent.Adapter.ViewScheduleAdpater;
-import com.arifin.daringschool.Activity.UiTeacher.Activity.ExaminationActivity;
+import com.arifin.daringschool.Activity.UiStudent.Activity.ExaminationActivity;
 import com.arifin.daringschool.Activity.UiTeacher.Activity.ScheduleTeacherActivity;
 import com.arifin.daringschool.Activity.UiTeacher.Activity.ScoreTeacherActivity;
 import com.arifin.daringschool.Activity.UiTeacher.Adapter.ScheduleHomeTeacherAdapter;
 import com.arifin.daringschool.Activity.UiTeacher.Model.Assignment;
-import com.arifin.daringschool.Model.Course;
 import com.arifin.daringschool.R;
 import com.fasterxml.jackson.core.util.MinimalPrettyPrinter;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;

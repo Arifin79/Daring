@@ -34,6 +34,7 @@ import com.google.firebase.storage.UploadTask;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.File;
 import java.util.Calendar;
 
 import butterknife.BindView;

@@ -18,7 +18,7 @@
         android:largeHeap="true"
         android:roundIcon="@drawable/daring"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DaringSchool">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".Activity.UiTeacher.Activity.ScheduleTeacherActivity"></activity>
         <activity android:name=".Activity.UiTeacher.Activity.ScoreTeacherActivity" />
         <activity android:name=".Activity.UiParent.Activity.EBookActivityParent" />
@@ -30,7 +30,7 @@
         <activity android:name=".Activity.UiStudent.Activity.EditProfileActivity" />
         <activity android:name=".Activity.UiTeacher.Activity.CreateAssignmentActivity" />
         <activity android:name=".Activity.UiStudent.Activity.GradeActivity" />
-        <activity android:name=".Activity.UiTeacher.Activity.ExaminationActivity" />
+        <activity android:name=".Activity.UiStudent.Activity.ExaminationActivity" />
         <activity android:name=".Activity.UiStudent.Activity.ScheduleActivity" />
         <activity android:name=".Activity.UiTeacher.Activity.AssigmentActivity" />
         <activity android:name=".Activity.UiStudent.Activity.HistoryAbsenActivity" />
