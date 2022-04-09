@@ -31,6 +31,8 @@ import com.arifin.daringschool.Activity.UiStudent.Activity.GradeActivity;
 import com.arifin.daringschool.Activity.UiStudent.Activity.HistoryAbsenActivity;
 import com.arifin.daringschool.Activity.UiStudent.Adapter.ViewScheduleAdpater;
 import com.arifin.daringschool.Activity.UiTeacher.Activity.ScheduleTeacherActivity;
+import com.arifin.daringschool.Activity.UiTeacher.Adapter.ScheduleHomeTeacherAdapter;
+import com.arifin.daringschool.Activity.UiTeacher.Model.Assignment;
 import com.arifin.daringschool.Model.Course;
 import com.arifin.daringschool.R;
 import com.fasterxml.jackson.core.util.MinimalPrettyPrinter;
@@ -52,6 +54,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 
 import butterknife.BindView;
@@ -103,13 +106,13 @@ public class HomeFragment extends Fragment {
     DatePickerDialog datePickerDialog;
     int mYear, mMonth, mDay;
     int mHour, mMinute;
-    ViewScheduleAdpater viewScheduleAdpater;
-    LinearLayoutManager layoutManagerAssigment;
-    ArrayList<Course> courseList;
     TextView urlProfile;
 
     DatabaseReference studentRef;
     DatabaseReference studentRefDashboard;
+    private ScheduleHomeTeacherAdapter assigmentAdapter;
+    private List<Assignment> assignmentList;
+    private DatabaseReference mDatabaseRef;
     private FirebaseAuth mAuth;
 
     @Override
@@ -152,12 +155,38 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        listSchedule();
+        assignmentList = new ArrayList<>();
 
-        viewScheduleAdpater = new ViewScheduleAdpater(courseList, getContext());
-        layoutManagerAssigment = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-        rvSchedule.setLayoutManager(layoutManagerAssigment);
-        rvSchedule.setAdapter(viewScheduleAdpater);
+        rvSchedule.setHasFixedSize(true);
+        rvSchedule.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        assigmentAdapter = new ScheduleHomeTeacherAdapter( getActivity(), assignmentList);
+        rvSchedule.setAdapter(assigmentAdapter);
+
+
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("login/Rahman").child("Assignment");
+        mDatabaseRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                assignmentList.clear();
+
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Assignment upload = postSnapshot.getValue(Assignment.class);
+                    upload.setKey(postSnapshot.getKey());
+                    assignmentList.add(upload);
+                }
+
+                assigmentAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(getActivity(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         imgArrowRight.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -320,13 +349,4 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    private void listSchedule() {
-        courseList = new ArrayList<>();
-        for (int i = 0; i<3 ; i++) {
-            Course course = new Course();
-            course.setAssignmentName("Indonesia");
-            courseList.add(course);
-        }
-
-    }
 }

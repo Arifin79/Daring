@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.arifin.daringschool.Activity.LoginActivity;
+import com.arifin.daringschool.Activity.UiParent.Activity.EditProfileParent;
 import com.arifin.daringschool.Activity.UiStudent.Activity.ChangePasswordActivity;
 import com.arifin.daringschool.Activity.UiStudent.Activity.EditProfileActivity;
 import com.arifin.daringschool.Model.Login.preferences;
@@ -81,7 +82,7 @@ public class ProfileFragmentParent extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), EditProfileActivity.class);
+                intent.setClass(getActivity(), EditProfileParent.class);
                 getActivity().startActivity(intent);
             }
         });

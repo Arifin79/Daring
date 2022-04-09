@@ -29,8 +29,6 @@ public class SplashScreenActivity extends AppCompatActivity {
             }
         }, 2000);
 
-        onStart();
-
     }
 
     @Override

@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.arifin.daringschool.Activity.LoginActivity;
 import com.arifin.daringschool.Activity.UiStudent.Activity.ChangePasswordActivity;
 import com.arifin.daringschool.Activity.UiStudent.Activity.EditProfileActivity;
+import com.arifin.daringschool.Activity.UiTeacher.Activity.EditProfileTeacherActivity;
 import com.arifin.daringschool.Model.Login.preferences;
 import com.arifin.daringschool.R;
 import com.google.firebase.database.DataSnapshot;
@@ -80,7 +81,7 @@ public class ProfileFragmentTeacher extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), EditProfileActivity.class);
+                intent.setClass(getActivity(), EditProfileTeacherActivity.class);
                 getActivity().startActivity(intent);
             }
         });

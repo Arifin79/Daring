@@ -61,40 +61,6 @@
                 android:textColor="@color/black"
                 android:textSize="13sp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Kelas"
-                android:layout_marginLeft="3dp"
-                android:textColor="@color/md_grey_500"
-                android:textSize="15sp"/>
-
-            <EditText
-                android:id="@+id/tvClass"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Kelas"
-                android:textColor="@color/black"
-                android:textSize="13sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Semester"
-                android:layout_marginLeft="3dp"
-                android:textColor="@color/md_grey_500"
-                android:textSize="15sp"/>
-
-            <EditText
-                android:id="@+id/tvSemester"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Semester"
-                android:textColor="@color/black"
-                android:textSize="13sp"/>
-
         </LinearLayout>
 
     </RelativeLayout>
